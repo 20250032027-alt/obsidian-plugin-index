@@ -328,6 +328,11 @@
         <button class="fb" data-c="Handwriting &amp; Media">Handwriting <span class="fn">1</span></button>
         <button class="fb" data-c="Fun &amp; Extras">Fun <span class="fn">1</span></button>
         <button class="fb" data-c="Worldbuilding">Worldbuilding <span class="fn">2</span></button>
+        <button class="fb" data-c="Community Plugin">All Community <span class="fn" id="cnt-community">...</span></button>
+      </div>
+      <div id="load-banner" style="display:none;margin-bottom:16px;background:var(--pg);border:1px solid var(--ba);border-radius:var(--rlg);padding:13px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+        <span id="load-status" style="font-family:var(--sans);font-size:13px;color:var(--p2);font-weight:600;">Loading all 4,300+ plugins...</span>
+        <span style="font-size:12px;color:var(--t3);">Sorted by downloads</span>
       </div>
       <div class="pgrid" id="pgrid"></div>
     </div>
@@ -576,15 +581,113 @@ const PLUGINS=[
 ];
 
 let curCat="all",pageQ="";
+PLUGINS.forEach(p=>p.isCurated=true);
+let ALL_PLUGINS=[...PLUGINS]; // starts with curated set
+let pluginsLoaded=false;
+
+// Curated plugin IDs for badging
+const CURATED_IDS=new Set(PLUGINS.map(p=>p.name.toLowerCase()));
+
+// Live load from GitHub
+async function loadAllPlugins(){
+  const banner=document.getElementById('load-banner');
+  const status=document.getElementById('load-status');
+  if(banner) banner.style.display='flex';
+  try {
+    // Fetch plugin list and stats in parallel
+    const [pluginsRes, statsRes] = await Promise.all([
+      fetch('https://raw.githubusercontent.com/obsidianmd/obsidian-releases/master/community-plugins.json'),
+      fetch('https://raw.githubusercontent.com/obsidianmd/obsidian-releases/master/community-plugin-stats.json')
+    ]);
+    const pluginList = await pluginsRes.json();
+    const stats = await statsRes.json();
+
+    // Build download totals per plugin id
+    const dlMap={};
+    for(const [id, versions] of Object.entries(stats)){
+      if(id==='updated') continue;
+      let total=0;
+      for(const v of Object.values(versions)) total+=v;
+      dlMap[id]=total;
+    }
+
+    // Build full plugin list - curated ones stay as-is with their rich data
+    const curatedNames=new Set(PLUGINS.map(p=>p.name.toLowerCase()));
+    const extra=[];
+    for(const p of pluginList){
+      const nameLower=p.name.toLowerCase();
+      if(curatedNames.has(nameLower)) continue; // skip, already have rich version
+      extra.push({
+        name: p.name,
+        cat: 'Community Plugin',
+        score: dlMap[p.id]||0,
+        url: p.repo ? 'https://github.com/'+p.repo : 'https://obsidian.md/plugins',
+        tags: [],
+        isNew: false,
+        isBeta: false,
+        desc: p.description||'No description provided.',
+        downloads: dlMap[p.id]||0,
+        isCurated: false,
+      });
+    }
+
+    // Mark curated ones
+    PLUGINS.forEach(p=>p.isCurated=true);
+
+    // Sort extra by downloads desc
+    extra.sort((a,b)=>b.downloads-a.downloads);
+
+    ALL_PLUGINS=[...PLUGINS, ...extra];
+    pluginsLoaded=true;
+
+    const total=ALL_PLUGINS.length;
+    if(status) status.textContent=`${total.toLocaleString()} plugins loaded`;
+    document.getElementById('cnt-all').textContent=total.toLocaleString();
+    const cc=document.getElementById('cnt-community');
+    if(cc) cc.textContent=(extra.length).toLocaleString();
+
+    // Re-render current view
+    renderTo('pgrid');
+    renderTo('home-pgrid',6);
+
+    setTimeout(()=>{ if(banner) banner.style.display='none'; }, 2000);
+  } catch(e) {
+    console.error('Plugin load failed:', e);
+    if(status) status.textContent='Could not load full plugin list. Showing curated selection.';
+    setTimeout(()=>{ if(banner) banner.style.display='none'; },3000);
+  }
+}
 const SV=`<svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" stroke="none" style="color:var(--p);opacity:.75"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>`;
 const AV=`<svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>`;
 
 function cardHTML(p){
-  return`<div class="pco"><div class="pc"><div class="pc-top"><div class="ptags"><span class="ptag ptag-cat">${p.cat}</span></div><div class="ptags">${p.isNew?'<span class="ptag ptag-new">New</span>':''}${p.isBeta?'<span class="ptag ptag-beta">Beta</span>':''}</div></div><div class="pc-name">${p.name}</div><div class="pc-desc">${p.desc}</div><div class="ptags">${p.tags.map(t=>`<span class="ptag">${t}</span>`).join('')}</div><div class="pc-ft"><div class="pc-sc">${SV}<span class="sn">${p.score.toLocaleString()}</span></div><a href="${p.url}" target="_blank" rel="noopener noreferrer" class="plink"><span class="plink-t">View</span><span class="plink-i">${AV}</span></a></div></div></div>`;
+  const scoreNum=p.isCurated?p.score:(p.downloads||0);
+  const scoreLabel=p.isCurated?'votes':'dl';
+  const dlIcon='<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--t3)"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>';
+  const scoreIcon=p.isCurated?SV:dlIcon;
+  const pickBadge=p.isCurated?'<span class="ptag" style="background:rgba(139,120,255,.1);color:var(--p2);border-color:rgba(139,120,255,.22);">Pick</span>':'';
+  const newBadge=p.isNew?'<span class="ptag ptag-new">New</span>':'';
+  const betaBadge=p.isBeta?'<span class="ptag ptag-beta">Beta</span>':'';
+  const tagHTML=p.tags&&p.tags.length?p.tags.map(t=>'<span class="ptag">'+t+'</span>').join(''):'';
+  return '<div class="pco"><div class="pc">'
+    +'<div class="pc-top">'
+    +'<div class="ptags"><span class="ptag ptag-cat">'+p.cat+'</span></div>'
+    +'<div class="ptags">'+pickBadge+newBadge+betaBadge+'</div>'
+    +'</div>'
+    +'<div class="pc-name">'+p.name+'</div>'
+    +'<div class="pc-desc">'+p.desc+'</div>'
+    +(tagHTML?'<div class="ptags">'+tagHTML+'</div>':'')
+    +'<div class="pc-ft">'
+    +'<div class="pc-sc">'+scoreIcon+'<span class="sn">'+scoreNum.toLocaleString()+'</span><span style="font-size:9.5px;color:var(--t3);margin-left:2px;">'+scoreLabel+'</span></div>'
+    +'<a href="'+p.url+'" target="_blank" rel="noopener noreferrer" class="plink">'
+    +'<span class="plink-t">View</span>'
+    +'<span class="plink-i"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></span>'
+    +'</a></div></div></div>';
 }
+
 function renderTo(id,limit){
   const g=document.getElementById(id);
-  let list=PLUGINS.filter(p=>{
+  let list=ALL_PLUGINS.filter(p=>{
     const mc=curCat==="all"||p.cat===curCat;
     const q=pageQ.toLowerCase();
     const ms=!q||p.name.toLowerCase().includes(q)||p.desc.toLowerCase().includes(q)||p.tags.some(t=>t.includes(q))||p.cat.toLowerCase().includes(q);
@@ -1086,6 +1189,7 @@ function revealAll(){
 renderTo('home-pgrid',6);
 document.getElementById('cnt-all').textContent=PLUGINS.length;
 revealAll(); setTimeout(revealAll,300);
+loadAllPlugins();
 // set initial history entry so back works from first page
 history.replaceState({page:'home'},'','');
 // deep-link support: ?guide=plugin-bloat opens that guide directly

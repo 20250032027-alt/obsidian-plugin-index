@@ -261,7 +261,7 @@
         </div>
       </div>
       <div style="margin-bottom:12px;"><span style="font-family:var(--sans);font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.11em;color:var(--t3);">What do you need?</span></div>
-      <div class="goal-row rev">
+      <div class="goal-row">
         <button class="gc" onclick="go('rec');setTimeout(()=>selGoal('tasks'),80)">
           <div class="gc-ico" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
           <div class="gc-t">Tasks and projects</div>
@@ -1070,12 +1070,27 @@ window.addEventListener('popstate', e=>{
 });
 
 function revealAll(){
-  const io=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),i*60);io.unobserve(e.target);}});},{threshold:0.06});
-  document.querySelectorAll('.rev:not(.in)').forEach(el=>io.observe(el));
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{
+      if(e.isIntersecting){
+        setTimeout(()=>e.target.classList.add('in'),i*60);
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:0, rootMargin:'0px 0px -20px 0px'});
+  document.querySelectorAll('.rev:not(.in)').forEach(el=>{
+    // immediately reveal if already in viewport
+    const r=el.getBoundingClientRect();
+    if(r.top < window.innerHeight && r.bottom > 0){
+      el.classList.add('in');
+    } else {
+      io.observe(el);
+    }
+  });
 }
 renderTo('home-pgrid',6);
 document.getElementById('cnt-all').textContent=PLUGINS.length;
-setTimeout(revealAll,100);
+revealAll(); setTimeout(revealAll,300);
 // set initial history entry so back works from first page
 history.replaceState({page:'home'},'','');
 // deep-link support: ?guide=plugin-bloat opens that guide directly

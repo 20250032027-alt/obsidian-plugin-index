@@ -1,7 +1,0 @@
-{
-  "cleanUrls": true,
-  "trailingSlash": false,
-  "rewrites": [
-    { "source": "/llms.txt", "destination": "/public/llms.txt" }
-  ]
-}

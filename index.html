@@ -231,15 +231,15 @@
 <a href="#main" class="skip">Skip to content</a>
 <nav aria-label="Main navigation">
   <div class="np">
-    <a href="#" class="nl" onclick="go('home');return false;">
+    <a href="/" class="nl" onclick="go('home');event.preventDefault();">
       <div class="lm" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><polygon points="8,1 15,5 15,11 8,15 1,11 1,5" fill="white" fill-opacity=".15" stroke="white" stroke-opacity=".85" stroke-width="1.2"/><polygon points="8,4 12,6.5 12,9.5 8,12 4,9.5 4,6.5" fill="white" fill-opacity=".28" stroke="white" stroke-opacity=".6" stroke-width=".8"/><circle cx="8" cy="8" r="2.2" fill="white" fill-opacity=".9"/></svg></div>
       ObsidianPluginIndex
     </a>
     <div class="nr">
-      <a href="#" class="na" data-p="plugins" onclick="go('plugins');return false;">Plugins</a>
-      <a href="#" class="na" data-p="rec" onclick="go('rec');return false;">Recommender</a>
-      <a href="#" class="na" data-p="sync" onclick="go('sync');return false;">Sync Wizard</a>
-      <a href="#" class="na" data-p="guides" onclick="go('guides');return false;">Guides</a>
+      <a href="javascript:void(0)" class="na" data-p="plugins" onclick="go('plugins')">Plugins</a>
+      <a href="javascript:void(0)" class="na" data-p="rec" onclick="go('rec')">Recommender</a>
+      <a href="javascript:void(0)" class="na" data-p="sync" onclick="go('sync')">Sync Wizard</a>
+      <a href="javascript:void(0)" class="na" data-p="guides" onclick="go('guides')">Guides</a>
       <button class="nb" onclick="go('rec')">Find my stack</button>
     </div>
   </div>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page not found | ObsidianPluginIndex</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg:#09090e; --bg2:#15151e; --b:rgba(255,255,255,0.07); --txt:#eceaf6; --t2:rgba(236,234,246,0.52); --t3:rgba(236,234,246,0.26); --p:#8b78ff; --p2:#b8a9ff; --sans:'Geist',system-ui,sans-serif; --body:'Plus Jakarta Sans',system-ui,sans-serif; }
+    body { font-family:var(--body); background:var(--bg); color:var(--txt); min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:28px; text-align:center; }
+    .orb { position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); width:600px; height:400px; background:radial-gradient(ellipse,rgba(109,90,224,.12) 0%,transparent 70%); pointer-events:none; filter:blur(60px); border-radius:50%; }
+    .inner { position:relative; z-index:1; max-width:440px; }
+    .code { font-family:var(--sans); font-size:clamp(72px,15vw,120px); font-weight:800; letter-spacing:-.04em; line-height:1; background:linear-gradient(110deg,#b8a9ff 15%,#7dd3fc 80%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom:24px; }
+    h1 { font-family:var(--sans); font-size:24px; font-weight:700; letter-spacing:-.02em; margin-bottom:12px; }
+    p { font-size:15px; color:var(--t2); line-height:1.7; margin-bottom:36px; }
+    .links { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+    .btn-p { display:inline-flex; align-items:center; gap:7px; background:var(--p); color:#fff; border-radius:999px; padding:11px 22px; font-size:14px; font-weight:700; font-family:var(--sans); text-decoration:none; transition:all .22s; min-height:44px; box-shadow:0 0 20px rgba(139,120,255,.28); }
+    .btn-p:hover { background:var(--p2); transform:translateY(-1px); }
+    .btn-s { display:inline-flex; align-items:center; background:rgba(255,255,255,.04); border:1px solid var(--b); color:var(--t2); border-radius:999px; padding:11px 22px; font-size:14px; font-weight:600; font-family:var(--sans); text-decoration:none; transition:all .2s; min-height:44px; }
+    .btn-s:hover { color:var(--txt); background:rgba(255,255,255,.07); }
+  </style>
+  <meta name="google-adsense-account" content="ca-pub-7492388540350253" />
+</head>
+<body>
+  <div class="orb" aria-hidden="true"></div>
+  <div class="inner">
+    <div class="code" aria-hidden="true">404</div>
+    <h1>Page not found</h1>
+    <p>The page you are looking for does not exist or may have moved. The plugin index, sync wizard, and guides are all on the home page.</p>
+    <div class="links">
+      <a href="/" class="btn-p">Go to home</a>
+      <a href="/#plugins" class="btn-s">Browse plugins</a>
+    </div>
+  </div>
+</body>
+</html>

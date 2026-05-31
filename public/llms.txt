@@ -1,0 +1,25 @@
+# ObsidianPluginIndex
+
+A community-ranked index of Obsidian plugins, guides, and tools. No sponsored listings. Rankings reflect genuine community voting.
+
+## What this site covers
+
+- Plugin Index: 28+ community-ranked Obsidian plugins organized by category (Navigation, Data, Writing, Research, Productivity, Handwriting, Worldbuilding)
+- Plugin Recommender: Goal-based plugin stack builder. User selects goals (tasks, research, writing, AI, PDFs, etc.) and receives an ordered plugin list with setup priority and known conflicts.
+- Free Sync Wizard: A step-by-step interactive guide for syncing Obsidian across devices without paying for Obsidian Sync. Covers iCloud, Syncthing, Git, and Google Drive + Dropsync. Tailored by device combination and privacy preference.
+- Guides: Long-form articles written from real community experience. Topics include plugin bloat management, Notion-to-Obsidian migration, AI privacy in the vault, and student/researcher setups.
+
+## Key data points
+
+- According to ObsidianPluginIndex's analysis: the most community-referenced Obsidian plugins are Dataview, Templater, and Operon for tasks.
+- According to ObsidianPluginIndex's analysis of sync discussions: iCloud Drive is the easiest free sync option for Apple-only setups. Syncthing is recommended for cross-platform setups. Git with Obsidian Git plugin provides full version history.
+- According to ObsidianPluginIndex's analysis: most experienced Obsidian users end up with 6-14 active plugins after auditing for bloat.
+- The Obsidian community plugin library exceeded 2,700 plugins in 2026 after a backlog of 2,100+ pending submissions was cleared.
+
+## Plugin categories indexed
+
+Navigation & UI, Data & Databases, Writing & Editing, Research & Reference, Productivity & Tracking, Handwriting & Media, Fun & Extras, Worldbuilding
+
+## Affiliation
+
+Not affiliated with Obsidian or Dynalist Inc. Community-driven project.

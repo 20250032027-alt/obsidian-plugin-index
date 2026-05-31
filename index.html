@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Obsidian Plugin Index: Find plugins that actually get used</title>
+  <meta name="description" content="Browse community-ranked Obsidian plugins, get a personalized plugin stack, set up free sync, and read guides written from real user experience. No sponsored listings." />
+  <meta property="og:title" content="Obsidian Plugin Index" />
+  <meta property="og:description" content="Community-ranked Obsidian plugins, free sync wizard, plugin recommender, and guides. No sponsored listings." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:image" content="https://obsidianpluginindex.com/public/og-image.svg" />
+  <meta name="twitter:image" content="https://obsidianpluginindex.com/public/og-image.svg" />
+  <meta name="google-adsense-account" content="ca-pub-7492388540350253" />
+  <link rel="canonical" href="https://obsidianpluginindex.com/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Obsidian Plugin Index","url":"https://obsidianpluginindex.com","description":"Community-ranked Obsidian plugins, free sync wizard, plugin recommender, and guides.","potentialAction":{"@type":"SearchAction","target":"https://obsidianpluginindex.com/?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the best free sync method for Obsidian?","acceptedAnswer":{"@type":"Answer","text":"According to ObsidianPluginIndex's analysis of community sync discussions: iCloud Drive is the easiest free option for Mac and iPhone users. Syncthing is the best choice for cross-platform setups because it works fully locally with no account required. Git with the Obsidian Git plugin is best for users who want full version history. Windows and Android users can use Google Drive combined with Dropsync on Android."}},{"@type":"Question","name":"Which Obsidian plugins are most recommended by the community?","acceptedAnswer":{"@type":"Answer","text":"According to ObsidianPluginIndex's analysis: Dataview is the most referenced plugin in setup threads. Templater is considered essential by most long-term users. For task management, Operon and Tasks are most commonly recommended. For research, ZotFlow and True Recall are the top picks."}},{"@type":"Question","name":"How many Obsidian plugins is too many?","acceptedAnswer":{"@type":"Answer","text":"According to ObsidianPluginIndex's analysis of community setup threads, most experienced users end up with 6 to 14 active plugins after a real audit. Startup time and conflict risk both increase with plugin count. If your vault takes more than 2 seconds to open, plugin count is usually the first thing to investigate."}}]}</script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:#09090e; --bg1:#0f0f16; --bg2:#15151e; --bg3:#1c1c28;
+      --sur:rgba(255,255,255,0.03); --surh:rgba(255,255,255,0.058);
+      --b:rgba(255,255,255,0.07); --ba:rgba(139,120,255,0.28);
+      --txt:#eceaf6; --t2:rgba(236,234,246,0.52); --t3:rgba(236,234,246,0.26);
+      --p:#8b78ff; --p2:#b8a9ff; --pg:rgba(139,120,255,0.1);
+      --gr:#2dd4a0; --am:#f5b944;
+      --ease:cubic-bezier(0.32,0.72,0,1); --eo:cubic-bezier(0,0,0.2,1);
+      --sans:'Geist','Plus Jakarta Sans',system-ui,sans-serif;
+      --body:'Plus Jakarta Sans',system-ui,sans-serif;
+      --mono:'JetBrains Mono',monospace;
+      --r:14px; --rlg:20px; --rxl:26px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family:var(--body); background:var(--bg); color:var(--txt); min-height:100vh; overflow-x:hidden; line-height:1.6; }
+    body::after { content:''; position:fixed; inset:0; z-index:900; pointer-events:none; opacity:.018; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size:200px; }
+    .wrap { max-width:1080px; margin:0 auto; padding:0 28px; }
+    .skip { position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
+    .skip:focus { left:16px; top:16px; width:auto; height:auto; padding:8px 16px; background:var(--p); color:#fff; border-radius:999px; font-family:var(--sans); font-weight:700; font-size:13px; z-index:9999; }
+    nav { position:fixed; top:16px; left:50%; transform:translateX(-50%); z-index:500; width:calc(100% - 40px); max-width:860px; }
+    .np { background:rgba(9,9,14,0.72); backdrop-filter:blur(28px); -webkit-backdrop-filter:blur(28px); border:1px solid var(--b); border-radius:999px; padding:10px 16px; display:flex; align-items:center; justify-content:space-between; box-shadow:0 2px 32px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.044); }
+    .nl { display:flex; align-items:center; gap:9px; text-decoration:none; color:var(--txt); font-family:var(--sans); font-weight:700; font-size:13.5px; letter-spacing:-.016em; }
+    .lm { width:28px; height:28px; background:linear-gradient(145deg,#6d5ae0,#b8a9ff); border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .nr { display:flex; align-items:center; gap:2px; }
+    .na { text-decoration:none; color:var(--t2); font-family:var(--sans); font-size:13px; font-weight:500; padding:6px 12px; border-radius:999px; transition:color .18s var(--eo),background .18s var(--eo); }
+    .na:hover,.na.on { color:var(--txt); background:var(--surh); }
+    .nb { font-family:var(--sans); font-size:12.5px; font-weight:700; padding:7px 18px; border-radius:999px; border:none; cursor:pointer; background:var(--p); color:#fff; box-shadow:0 0 20px rgba(139,120,255,.28); transition:all .22s var(--ease); min-height:44px; }
+    .nb:hover { background:var(--p2); transform:translateY(-1px); }
+    .ps { display:none; } .ps.on { display:block; }
+    .hero { padding:148px 0 72px; position:relative; }
+    .horb { position:absolute; top:-80px; left:50%; transform:translateX(-50%); width:900px; height:500px; background:radial-gradient(ellipse,rgba(109,90,224,.14) 0%,transparent 68%); pointer-events:none; filter:blur(60px); border-radius:50%; }
+    .hi { position:relative; z-index:1; }
+    .ey { display:inline-flex; align-items:center; gap:7px; border:1px solid rgba(139,120,255,.2); background:rgba(139,120,255,.07); border-radius:999px; padding:5px 14px 5px 8px; font-family:var(--sans); font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.11em; color:var(--p2); margin-bottom:24px; }
+    .eyd { width:6px; height:6px; border-radius:50%; background:var(--p); animation:blink 2.4s ease infinite; flex-shrink:0; }
+    @keyframes blink { 0%,100%{opacity:1}50%{opacity:.3} }
+    h1.hh { font-family:var(--sans); font-size:clamp(44px,6.8vw,82px); font-weight:800; line-height:1.04; letter-spacing:-.03em; margin-bottom:20px; }
+    h1.hh span { background:linear-gradient(110deg,#b8a9ff 15%,#7dd3fc 80%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .hsub { font-size:16.5px; color:var(--t2); max-width:460px; line-height:1.72; margin-bottom:44px; }
+    .ss { max-width:560px; margin-bottom:50px; background:rgba(255,255,255,.028); border:1px solid var(--b); border-radius:var(--rxl); padding:3px; box-shadow:0 6px 40px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.04); transition:border-color .24s var(--eo),box-shadow .24s var(--eo); }
+    .ss:focus-within { border-color:rgba(139,120,255,.38); box-shadow:0 6px 40px rgba(0,0,0,.22),0 0 0 3px rgba(139,120,255,.08); }
+    .sr { display:flex; align-items:center; gap:10px; background:var(--bg2); border-radius:calc(var(--rxl) - 3px); padding:12px 16px; }
+    .sr svg { color:var(--t3); flex-shrink:0; }
+    .sr input { flex:1; background:none; border:none; outline:none; color:var(--txt); font-size:14.5px; font-family:var(--body); }
+    .sr input::placeholder { color:var(--t3); }
+    .kbd { font-family:var(--mono); font-size:10px; color:var(--t3); background:var(--bg3); border:1px solid var(--b); border-radius:5px; padding:2px 7px; white-space:nowrap; }
+    .goal-row { display:grid; grid-template-columns:repeat(4,1fr); gap:9px; }
+    .gc { background:var(--sur); border:1px solid var(--b); border-radius:var(--rlg); padding:16px; cursor:pointer; text-align:left; font-family:var(--body); transition:all .24s var(--ease); min-height:44px; }
+    .gc:hover { background:var(--surh); border-color:var(--ba); transform:translateY(-2px); }
+    .gc-ico { width:32px; height:32px; border-radius:9px; background:var(--pg); border:1px solid rgba(139,120,255,.18); display:flex; align-items:center; justify-content:center; color:var(--p2); margin-bottom:11px; }
+    .gc-t { font-family:var(--sans); font-size:12.5px; font-weight:700; color:var(--txt); margin-bottom:3px; letter-spacing:-.01em; }
+    .gc-s { font-size:11.5px; color:var(--t2); line-height:1.5; }
+    .sec { padding:88px 0; }
+    .sec-ey { font-family:var(--sans); font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:var(--t3); margin-bottom:11px; }
+    .sec-h { font-family:var(--sans); font-size:clamp(26px,3.4vw,42px); font-weight:800; letter-spacing:-.025em; line-height:1.1; margin-bottom:11px; }
+    .sec-s { font-size:15px; color:var(--t2); line-height:1.68; max-width:460px; }
+    .sec-hd { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:36px; gap:24px; }
+    .filter-row { display:flex; gap:5px; flex-wrap:wrap; margin-bottom:20px; }
+    .fb { display:inline-flex; align-items:center; gap:5px; padding:6px 14px; border-radius:999px; cursor:pointer; border:1px solid var(--b); background:var(--sur); color:var(--t2); font-size:12px; font-weight:600; font-family:var(--body); transition:all .18s var(--eo); min-height:44px; }
+    .fb:hover { background:var(--surh); color:var(--txt); }
+    .fb.on { background:var(--p); border-color:var(--p); color:#fff; box-shadow:0 0 14px rgba(139,120,255,.26); }
+    .fn { font-size:9.5px; font-weight:800; background:rgba(255,255,255,.14); border-radius:999px; padding:1px 6px; font-family:var(--mono); }
+    .fb.on .fn { background:rgba(255,255,255,.22); }
+    .pss { margin-bottom:20px; }
+    .pss .ss { max-width:100%; margin-bottom:0; }
+    .pgrid { display:grid; grid-template-columns:repeat(auto-fill,minmax(298px,1fr)); gap:12px; }
+    .pco { background:rgba(255,255,255,.02); border:1px solid var(--b); border-radius:var(--rxl); padding:3px; transition:all .28s var(--ease); }
+    .pco:hover { border-color:var(--ba); box-shadow:0 8px 32px rgba(0,0,0,.18),0 0 0 1px rgba(139,120,255,.05); transform:translateY(-3px); }
+    .pc { background:var(--bg1); border-radius:calc(var(--rxl) - 3px); padding:20px; display:flex; flex-direction:column; gap:11px; height:100%; box-shadow:inset 0 1px 0 rgba(255,255,255,.038); }
+    .pc-top { display:flex; align-items:flex-start; justify-content:space-between; gap:8px; }
+    .ptags { display:flex; gap:4px; flex-wrap:wrap; }
+    .ptag { font-size:10px; font-weight:600; padding:3px 9px; border-radius:999px; background:var(--bg3); color:var(--t3); border:1px solid var(--b); font-family:var(--sans); }
+    .ptag-cat { color:var(--t2); background:var(--bg2); }
+    .ptag-new { background:rgba(45,212,160,.07); color:var(--gr); border-color:rgba(45,212,160,.2); }
+    .ptag-beta { background:rgba(245,185,68,.07); color:var(--am); border-color:rgba(245,185,68,.2); }
+    .pc-name { font-family:var(--sans); font-size:15px; font-weight:700; letter-spacing:-.018em; line-height:1.25; }
+    .pc-desc { font-size:13px; color:var(--t2); line-height:1.68; flex:1; }
+    .pc-ft { display:flex; align-items:center; justify-content:space-between; padding-top:11px; border-top:1px solid var(--b); }
+    .pc-sc { display:flex; align-items:center; gap:5px; font-family:var(--mono); font-size:11px; color:var(--t3); }
+    .sn { font-size:13.5px; font-weight:700; color:var(--p2); }
+    .plink { display:inline-flex; align-items:center; text-decoration:none; border-radius:999px; background:var(--sur); border:1px solid var(--b); color:var(--t2); font-size:11.5px; font-weight:600; overflow:hidden; transition:all .22s var(--ease); font-family:var(--body); min-height:44px; }
+    .plink-t { padding:5px 11px 5px 13px; }
+    .plink-i { width:24px; height:24px; margin:3px 3px 3px 0; border-radius:999px; background:rgba(255,255,255,.06); display:flex; align-items:center; justify-content:center; transition:transform .22s var(--ease),background .22s var(--ease); }
+    .plink:hover { background:var(--p); border-color:var(--p); color:#fff; }
+    .plink:hover .plink-i { background:rgba(255,255,255,.18); transform:translate(2px,-2px); }
+    .no-r { grid-column:1/-1; text-align:center; padding:64px 24px; color:var(--t3); }
+    .no-r strong { display:block; font-size:16px; margin-bottom:5px; color:var(--t2); font-family:var(--sans); }
+    .rec-wrap { max-width:660px; }
+    .goal-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:24px; }
+    .gl { background:var(--sur); border:1px solid var(--b); border-radius:var(--rlg); padding:14px 16px; cursor:pointer; text-align:left; font-family:var(--body); transition:all .2s var(--ease); display:flex; align-items:center; gap:13px; min-height:44px; }
+    .gl:hover { background:var(--surh); border-color:var(--ba); }
+    .gl.sel { background:var(--pg); border-color:var(--ba); box-shadow:inset 0 0 0 1px rgba(139,120,255,.12); }
+    .gl-ico { width:34px; height:34px; border-radius:9px; background:var(--bg2); border:1px solid var(--b); display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--t2); transition:all .2s var(--ease); }
+    .gl.sel .gl-ico { background:var(--pg); border-color:var(--ba); color:var(--p2); }
+    .gl-t { font-family:var(--sans); font-size:13px; font-weight:700; color:var(--txt); margin-bottom:2px; letter-spacing:-.01em; }
+    .gl-s { font-size:11.5px; color:var(--t2); }
+    .rec-btn { display:inline-flex; align-items:center; gap:9px; background:var(--p); color:#fff; border:none; border-radius:999px; padding:12px 26px; font-size:13.5px; font-weight:700; font-family:var(--sans); cursor:pointer; box-shadow:0 0 22px rgba(139,120,255,.28); transition:all .22s var(--ease); margin-top:4px; letter-spacing:-.01em; min-height:44px; }
+    .rec-btn:hover { background:var(--p2); transform:translateY(-1px); }
+    .rec-btn:disabled { opacity:.38; cursor:not-allowed; transform:none; }
+    .rec-out { display:none; margin-top:40px; }
+    .rec-out.show { display:block; }
+    .rec-out-h { font-family:var(--sans); font-size:22px; font-weight:800; letter-spacing:-.022em; margin-bottom:20px; }
+    .rstk { display:flex; flex-direction:column; gap:10px; }
+    .rcard { background:var(--sur); border:1px solid var(--b); border-radius:var(--rlg); padding:16px 18px; display:flex; align-items:flex-start; gap:14px; }
+    .rnum { width:26px; height:26px; border-radius:8px; background:var(--pg); border:1px solid rgba(139,120,255,.2); display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-size:11px; font-weight:700; color:var(--p2); flex-shrink:0; }
+    .rcard-name { font-family:var(--sans); font-size:14px; font-weight:700; margin-bottom:4px; letter-spacing:-.012em; }
+    .rcard-why { font-size:13px; color:var(--t2); line-height:1.62; }
+    .rcard-warn { margin-top:8px; font-size:11.5px; color:var(--am); background:rgba(245,185,68,.07); border:1px solid rgba(245,185,68,.18); border-radius:7px; padding:5px 10px; }
+    .wiz-wrap { max-width:620px; }
+    .wiz-prog { display:flex; gap:5px; margin-bottom:32px; }
+    .wp { height:2px; border-radius:999px; background:var(--b); flex:1; transition:background .3s var(--eo); }
+    .wp.done { background:var(--p); }
+    .wiz-step { display:none; } .wiz-step.on { display:block; }
+    .wiz-q { font-family:var(--sans); font-size:20px; font-weight:800; letter-spacing:-.02em; margin-bottom:22px; line-height:1.25; }
+    .wiz-opts { display:flex; flex-direction:column; gap:8px; margin-bottom:24px; }
+    .wo { display:flex; align-items:flex-start; gap:13px; background:var(--sur); border:1px solid var(--b); border-radius:var(--rlg); padding:14px 16px; cursor:pointer; text-align:left; font-family:var(--body); transition:all .2s var(--ease); min-height:44px; }
+    .wo:hover { background:var(--surh); border-color:var(--ba); }
+    .wo-ico { width:34px; height:34px; border-radius:9px; background:var(--bg2); border:1px solid var(--b); display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--t2); }
+    .wo-t { font-family:var(--sans); font-size:13.5px; font-weight:700; color:var(--txt); margin-bottom:2px; letter-spacing:-.01em; }
+    .wo-s { font-size:12px; color:var(--t2); line-height:1.5; }
+    .wiz-back { background:none; border:1px solid var(--b); border-radius:999px; padding:8px 16px; font-size:12.5px; font-weight:600; color:var(--t2); cursor:pointer; font-family:var(--body); transition:all .18s var(--eo); display:inline-flex; align-items:center; gap:6px; min-height:44px; }
+    .wiz-back:hover { color:var(--txt); border-color:rgba(255,255,255,.14); }
+    .wiz-result { display:none; } .wiz-result.show { display:block; }
+    .wr-head { display:flex; align-items:center; gap:14px; margin-bottom:24px; }
+    .wr-badge { width:46px; height:46px; border-radius:12px; background:var(--pg); border:1px solid rgba(139,120,255,.22); display:flex; align-items:center; justify-content:center; color:var(--p2); flex-shrink:0; }
+    .wr-title { font-family:var(--sans); font-size:22px; font-weight:800; letter-spacing:-.02em; }
+    .wr-sub { font-size:13px; color:var(--t2); margin-top:2px; }
+    .wr-steps { display:flex; flex-direction:column; gap:10px; margin-bottom:24px; }
+    .ws { display:flex; gap:13px; background:var(--sur); border:1px solid var(--b); border-radius:var(--rlg); padding:15px 16px; }
+    .ws-n { width:26px; height:26px; border-radius:7px; background:var(--pg); border:1px solid rgba(139,120,255,.2); display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-size:11px; font-weight:700; color:var(--p2); flex-shrink:0; }
+    .ws-t { font-family:var(--sans); font-size:13px; font-weight:700; margin-bottom:3px; letter-spacing:-.01em; }
+    .ws-s { font-size:12.5px; color:var(--t2); line-height:1.62; }
+    .ws-code { margin-top:7px; background:var(--bg3); border:1px solid var(--b); border-radius:7px; padding:7px 11px; font-family:var(--mono); font-size:11px; color:var(--p2); word-break:break-all; }
+    .wr-note { padding:13px 16px; border-radius:var(--rlg); border:1px solid var(--b); font-size:12.5px; color:var(--t2); line-height:1.62; background:var(--sur); }
+    .wiz-restart { display:inline-flex; align-items:center; gap:7px; margin-top:18px; background:none; border:1px solid var(--b); border-radius:999px; padding:8px 16px; font-size:12.5px; font-weight:600; color:var(--t2); cursor:pointer; font-family:var(--body); transition:all .18s var(--eo); min-height:44px; }
+    .wiz-restart:hover { color:var(--txt); border-color:rgba(255,255,255,.14); }
+    .guides-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    .gg { background:var(--sur); border:1px solid var(--b); border-radius:var(--rxl); padding:26px; cursor:pointer; text-align:left; font-family:var(--body); transition:all .26s var(--ease); position:relative; overflow:hidden; min-height:44px; }
+    .gg::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,var(--pg) 0%,transparent 55%); opacity:0; transition:opacity .26s var(--ease); }
+    .gg:hover { border-color:var(--ba); transform:translateY(-2px); }
+    .gg:hover::before { opacity:1; }
+    .gg:hover .gg-arr { background:var(--p); border-color:var(--p); color:#fff; transform:translate(2px,-2px); }
+    .gg-cat { font-family:var(--sans); font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--t3); margin-bottom:13px; position:relative; }
+    .gg-t { font-family:var(--sans); font-size:15.5px; font-weight:700; letter-spacing:-.016em; margin-bottom:8px; line-height:1.3; position:relative; }
+    .gg-s { font-size:13px; color:var(--t2); line-height:1.65; position:relative; }
+    .gg-ft { display:flex; align-items:center; justify-content:space-between; margin-top:18px; position:relative; }
+    .gg-min { font-size:11px; color:var(--t3); }
+    .gg-arr { width:28px; height:28px; border-radius:50%; background:var(--bg2); border:1px solid var(--b); display:flex; align-items:center; justify-content:center; color:var(--t3); transition:all .22s var(--ease); }
+    .read-progress { position:fixed; top:0; left:0; height:2px; background:var(--p); z-index:600; width:0%; transition:width .1s linear; pointer-events:none; }
+    .art-back { display:inline-flex; align-items:center; gap:7px; background:none; border:1px solid var(--b); border-radius:999px; padding:8px 16px; font-size:12.5px; font-weight:600; color:var(--t2); cursor:pointer; font-family:var(--body); margin-bottom:32px; transition:all .18s var(--eo); min-height:44px; }
+    .art-back:hover { color:var(--txt); border-color:rgba(255,255,255,.14); }
+    .art-cat { font-family:var(--sans); font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.11em; color:var(--t3); margin-bottom:12px; }
+    .art-title { font-family:var(--sans); font-size:clamp(28px,3.8vw,44px); font-weight:800; letter-spacing:-.025em; line-height:1.1; margin-bottom:18px; }
+    .art-meta { font-size:12.5px; color:var(--t3); margin-bottom:36px; padding-bottom:24px; border-bottom:1px solid var(--b); font-family:var(--sans); }
+    .art-body { max-width:640px; }
+    .art-body p { font-size:15.5px; color:var(--t2); line-height:1.82; margin-bottom:20px; }
+    .art-body h2 { font-family:var(--sans); font-size:22px; font-weight:800; letter-spacing:-.02em; margin:36px 0 13px; color:var(--txt); }
+    .art-body h3 { font-family:var(--sans); font-size:16px; font-weight:700; margin:26px 0 10px; color:var(--txt); letter-spacing:-.015em; }
+    .art-body ul,.art-body ol { padding-left:18px; margin-bottom:20px; }
+    .art-body li { font-size:15px; color:var(--t2); line-height:1.74; margin-bottom:9px; }
+    .art-body blockquote { border-left:2px solid rgba(139,120,255,.35); padding:14px 20px; background:var(--bg2); border-radius:0 9px 9px 0; margin:24px 0; }
+    .art-body blockquote p { color:var(--t2); font-size:14.5px; margin-bottom:5px; font-style:italic; }
+    .art-body blockquote cite { font-size:11.5px; color:var(--t3); font-style:normal; font-weight:600; font-family:var(--sans); }
+    .art-body .pill-row { display:flex; gap:6px; flex-wrap:wrap; margin:16px 0 24px; }
+    .art-body .pill { font-size:11.5px; font-weight:600; padding:4px 12px; border-radius:999px; background:var(--bg3); color:var(--t2); border:1px solid var(--b); font-family:var(--sans); }
+    .art-body strong { color:var(--txt); font-weight:700; }
+    .art-faq { margin-top:40px; padding-top:32px; border-top:1px solid var(--b); }
+    .faq-q { font-family:var(--sans); font-size:15px; font-weight:700; color:var(--txt); margin-bottom:8px; margin-top:24px; letter-spacing:-.012em; }
+    .faq-a { font-size:14.5px; color:var(--t2); line-height:1.74; margin-bottom:0; }
+    .rev { opacity:0; transform:translateY(18px); filter:blur(2px); transition:opacity .68s var(--eo),transform .68s var(--eo),filter .68s var(--eo); }
+    .rev.in { opacity:1; transform:translateY(0); filter:blur(0); }
+    @media (prefers-reduced-motion:reduce) { .rev { transition:none; opacity:1; transform:none; filter:none; } }
+    /* Mobile bottom nav */
+    .mob-nav { display:none; }
+    @media (max-width:768px) {
+      nav { top:10px; width:calc(100% - 28px); }
+      .na { display:none; }
+      .nb { display:none; }
+      .hero { padding:110px 0 56px; }
+      h1.hh { font-size:38px; }
+      .hsub { font-size:15px; }
+      .goal-row { grid-template-columns:1fr 1fr; }
+      .sec { padding:60px 0; }
+      .sec-hd { flex-direction:column; align-items:flex-start; }
+      .pgrid { grid-template-columns:1fr; }
+      .guides-grid { grid-template-columns:1fr; }
+      .goal-grid { grid-template-columns:1fr; }
+      /* bottom nav bar */
+      .mob-nav {
+        display:flex; position:fixed; bottom:0; left:0; right:0; z-index:400;
+        background:rgba(9,9,14,0.88); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+        border-top:1px solid var(--b); padding:8px 0 max(8px, env(safe-area-inset-bottom));
+        justify-content:space-around; align-items:center;
+      }
+      .mob-nav-btn {
+        display:flex; flex-direction:column; align-items:center; gap:4px;
+        background:none; border:none; cursor:pointer; padding:6px 12px;
+        color:var(--t3); font-family:var(--sans); font-size:10px; font-weight:600;
+        text-transform:uppercase; letter-spacing:.06em; transition:color .18s var(--eo);
+        min-width:60px;
+      }
+      .mob-nav-btn.on { color:var(--p2); }
+      .mob-nav-btn svg { stroke:currentColor; }
+      main { padding-bottom:80px; }
+    }
+  </style>
+</head>
+<body>
+<div class="read-progress" id="rp" aria-hidden="true"></div>
+<a href="#main" class="skip">Skip to content</a>
+<nav aria-label="Main navigation">
+  <div class="np">
+    <a href="#" class="nl" onclick="go('home');return false;">
+      <div class="lm" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><polygon points="8,1 15,5 15,11 8,15 1,11 1,5" fill="white" fill-opacity=".15" stroke="white" stroke-opacity=".85" stroke-width="1.2"/><polygon points="8,4 12,6.5 12,9.5 8,12 4,9.5 4,6.5" fill="white" fill-opacity=".28" stroke="white" stroke-opacity=".6" stroke-width=".8"/><circle cx="8" cy="8" r="2.2" fill="white" fill-opacity=".9"/></svg></div>
+      ObsidianPluginIndex
+    </a>
+    <div class="nr">
+      <a href="#" class="na" data-p="plugins" onclick="go('plugins');return false;">Plugins</a>
+      <a href="#" class="na" data-p="rec" onclick="go('rec');return false;">Recommender</a>
+      <a href="#" class="na" data-p="sync" onclick="go('sync');return false;">Sync Wizard</a>
+      <a href="#" class="na" data-p="guides" onclick="go('guides');return false;">Guides</a>
+      <button class="nb" onclick="go('rec')">Find my stack</button>
+    </div>
+  </div>
+</nav>
+<main id="main">
+
+<div id="p-home" class="ps on">
+  <div class="hero">
+    <div class="horb" aria-hidden="true"></div>
+    <div class="wrap hi">
+      <div class="ey" aria-hidden="true"><span class="eyd"></span>Community-ranked · No paid placements</div>
+      <h1 class="hh">Find plugins that<br /><span>actually get used</span></h1>
+      <p class="hsub">Every plugin here earned its spot. Rankings come from how the community actually votes, not who asked loudest.</p>
+      <div class="ss" role="search">
+        <div class="sr">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input id="hs" type="text" placeholder="Search plugins, use cases, categories..." autocomplete="off" aria-label="Search plugins" />
+          <span class="kbd" aria-hidden="true">Cmd K</span>
+        </div>
+      </div>
+      <div style="margin-bottom:12px;"><span style="font-family:var(--sans);font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.11em;color:var(--t3);">What do you need?</span></div>
+      <div class="goal-row rev">
+        <button class="gc" onclick="go('rec');setTimeout(()=>selGoal('tasks'),80)">
+          <div class="gc-ico" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+          <div class="gc-t">Tasks and projects</div>
+          <div class="gc-s">Get a plugin stack that covers it</div>
+        </button>
+        <button class="gc" onclick="go('sync')">
+          <div class="gc-ico" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 21h5v-5"/></svg></div>
+          <div class="gc-t">Free sync across devices</div>
+          <div class="gc-s">Step-by-step wizard for your setup</div>
+        </button>
+        <button class="gc" onclick="go('rec');setTimeout(()=>selGoal('research'),80)">
+          <div class="gc-ico" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+          <div class="gc-t">Academic or research notes</div>
+          <div class="gc-s">Zotero, spaced repetition, citations</div>
+        </button>
+        <button class="gc" onclick="go('guides')">
+          <div class="gc-ico" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+          <div class="gc-t">Read guides and setups</div>
+          <div class="gc-s">From people who actually use it</div>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="sec" style="padding-top:0;">
+    <div class="wrap">
+      <div class="sec-hd rev">
+        <div>
+          <div class="sec-ey">Top Plugins</div>
+          <h2 class="sec-h">What people are installing</h2>
+          <p class="sec-s">Sorted by community score. Full list in the Plugins tab.</p>
+        </div>
+        <button onclick="go('plugins')" style="flex-shrink:0;display:inline-flex;align-items:center;gap:7px;background:var(--sur);border:1px solid var(--b);border-radius:999px;padding:8px 16px;min-height:44px;font-size:12.5px;font-weight:600;color:var(--t2);cursor:pointer;font-family:var(--body);transition:all .18s var(--eo);white-space:nowrap;" onmouseover="this.style.color='var(--txt)'" onmouseout="this.style.color='var(--t2)'">View all <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+      </div>
+      <div class="pgrid" id="home-pgrid"></div>
+    </div>
+  </div>
+</div>
+
+<div id="p-plugins" class="ps">
+  <div class="sec" style="padding-top:120px;">
+    <div class="wrap">
+      <div class="sec-hd rev">
+        <div>
+          <div class="sec-ey">Plugin Index</div>
+          <h2 class="sec-h">Browse the full index</h2>
+          <p class="sec-s">Filter by category or search. Score reflects genuine community interest, not install counts.</p>
+        </div>
+      </div>
+      <div class="pss rev" role="search">
+        <div class="ss">
+          <div class="sr">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <input id="ps-in" type="text" placeholder="Search by name, tag, or use case..." autocomplete="off" aria-label="Search plugins" />
+          </div>
+        </div>
+      </div>
+      <div class="filter-row rev" id="pfb" role="group" aria-label="Filter by category">
+        <button class="fb on" data-c="all">All <span class="fn" id="cnt-all">28</span></button>
+        <button class="fb" data-c="Navigation &amp; UI">Navigation <span class="fn">5</span></button>
+        <button class="fb" data-c="Data &amp; Databases">Data <span class="fn">5</span></button>
+        <button class="fb" data-c="Writing &amp; Editing">Writing <span class="fn">4</span></button>
+        <button class="fb" data-c="Research &amp; Reference">Research <span class="fn">4</span></button>
+        <button class="fb" data-c="Productivity &amp; Tracking">Productivity <span class="fn">7</span></button>
+        <button class="fb" data-c="Handwriting &amp; Media">Handwriting <span class="fn">1</span></button>
+        <button class="fb" data-c="Fun &amp; Extras">Fun <span class="fn">1</span></button>
+        <button class="fb" data-c="Worldbuilding">Worldbuilding <span class="fn">2</span></button>
+      </div>
+      <div class="pgrid" id="pgrid"></div>
+    </div>
+  </div>
+</div>
+
+<div id="p-rec" class="ps">
+  <div class="sec" style="padding-top:120px;">
+    <div class="wrap">
+      <div class="sec-ey rev">Plugin Recommender</div>
+      <h2 class="sec-h rev">Tell me what you want to do</h2>
+      <p class="sec-s rev" style="margin-bottom:36px;">Pick your goals and get the exact plugin stack, setup order, and any known conflicts.</p>
+      <div class="rec-wrap">
+        <div class="goal-grid rev" id="goal-grid">
+          <button class="gl" data-g="tasks" onclick="toggleGoal(this)"><div class="gl-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><div><div class="gl-t">Tasks and projects</div><div class="gl-s">Todos, deadlines, kanban</div></div></button>
+          <button class="gl" data-g="daily" onclick="toggleGoal(this)"><div class="gl-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><div><div class="gl-t">Daily notes and journaling</div><div class="gl-s">Morning pages, capture, habits</div></div></button>
+          <button class="gl" data-g="research" onclick="toggleGoal(this)"><div class="gl-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><div><div class="gl-t">Academic research</div><div class="gl-s">Zotero, citations, flashcards</div></div></button>
+          <button class="gl" data-g="writing" onclick="toggleGoal(this)"><div class="gl-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div><div><div class="gl-t">Long-form writing</div><div class="gl-s">Articles, books, essays</div></div></button>
+          <button class="gl" data-g="database" onclick="toggleGoal(this)"><div class="gl-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div><div><div class="gl-t">Databases and structured data</div><div class="gl-s">Tables, boards, queries</div></div></button>
+          <button class="gl" data-g="ai" onclick="toggleGoal(this)"><div class="gl-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div><div><div class="gl-t">AI integration</div><div class="gl-s">Local LLMs, search, summarization</div></div></button>
+          <button class="gl" data-g="pdf" onclick="toggleGoal(this)"><div class="gl-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><div><div class="gl-t">PDFs and reading</div><div class="gl-s">Annotations, highlights, import</div></div></button>
+          <button class="gl" data-g="tracking" onclick="toggleGoal(this)"><div class="gl-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><div><div class="gl-t">Personal tracking</div><div class="gl-s">Habits, budget, media logs</div></div></button>
+        </div>
+        <button class="rec-btn" id="rec-btn" onclick="buildRec()" disabled>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          Build my stack
+        </button>
+        <div class="rec-out" id="rec-out">
+          <div class="rec-out-h" id="rec-title">Your recommended stack</div>
+          <div class="rstk" id="rstk"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="p-sync" class="ps">
+  <div class="sec" style="padding-top:120px;">
+    <div class="wrap">
+      <div class="sec-ey rev">Free Sync Setup Wizard</div>
+      <h2 class="sec-h rev">How do I sync Obsidian for free?</h2>
+      <p class="sec-s rev" style="margin-bottom:8px;">According to ObsidianPluginIndex's analysis of community sync discussions, the best free method depends on your devices and privacy needs. Answer three questions and get exact steps.</p>
+      <p style="font-size:13px;color:var(--t3);margin-bottom:40px;max-width:460px;">Obsidian Sync costs $10/month. iCloud, Syncthing, and Git are all free alternatives that work reliably.</p>
+      <div class="wiz-wrap">
+        <div class="wiz-prog" id="wiz-prog">
+          <div class="wp done" id="wp0"></div>
+          <div class="wp" id="wp1"></div>
+          <div class="wp" id="wp2"></div>
+        </div>
+        <div class="wiz-step on" id="ws0">
+          <div class="wiz-q">What devices do you use Obsidian on?</div>
+          <div class="wiz-opts">
+            <button class="wo" onclick="wiz(0,'mac-iphone')"><div class="wo-ico" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div><div><div class="wo-t">Mac and iPhone or iPad</div><div class="wo-s">All Apple devices</div></div></button>
+            <button class="wo" onclick="wiz(0,'windows-android')"><div class="wo-ico" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><div><div class="wo-t">Windows and Android</div><div class="wo-s">Cross-platform, no Apple ecosystem</div></div></button>
+            <button class="wo" onclick="wiz(0,'mac-android')"><div class="wo-ico" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div><div><div class="wo-t">Mac and Android</div><div class="wo-s">Apple desktop, Android phone</div></div></button>
+            <button class="wo" onclick="wiz(0,'desktop-only')"><div class="wo-ico" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><div><div class="wo-t">Desktop only</div><div class="wo-s">One or more computers, no mobile</div></div></button>
+            <button class="wo" onclick="wiz(0,'linux')"><div class="wo-ico" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><div><div class="wo-t">Linux is involved</div><div class="wo-s">Any setup including a Linux machine</div></div></button>
+          </div>
+        </div>
+        <div class="wiz-step" id="ws1">
+          <div class="wiz-q">What matters most to you?</div>
+          <div class="wiz-opts">
+            <button class="wo" onclick="wiz(1,'easy')"><div class="wo-ico" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><div><div class="wo-t">Easiest possible setup</div><div class="wo-s">I would rather it just work than have full control</div></div></button>
+            <button class="wo" onclick="wiz(1,'private')"><div class="wo-ico" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><div><div class="wo-t">Full privacy, data stays local</div><div class="wo-s">No third-party servers touching my notes</div></div></button>
+            <button class="wo" onclick="wiz(1,'reliable')"><div class="wo-ico" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><div class="wo-t">Reliability above all</div><div class="wo-s">I need it to work every time without thinking about it</div></div></button>
+          </div>
+          <button class="wiz-back" onclick="showWS(0)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>Back</button>
+        </div>
+        <div class="wiz-step" id="ws2">
+          <div class="wiz-q">How comfortable are you with technical setup?</div>
+          <div class="wiz-opts">
+            <button class="wo" onclick="wiz(2,'nope')"><div class="wo-ico" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div><div><div class="wo-t">Just want to click and go</div><div class="wo-s">No config files, no terminal</div></div></button>
+            <button class="wo" onclick="wiz(2,'some')"><div class="wo-ico" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div><div class="wo-t">Can follow a guide</div><div class="wo-s">Some steps are fine if there is a clear path</div></div></button>
+            <button class="wo" onclick="wiz(2,'yes')"><div class="wo-ico" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><div><div class="wo-t">Comfortable with Git and config</div><div class="wo-s">I can handle a README</div></div></button>
+          </div>
+          <button class="wiz-back" onclick="showWS(1)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>Back</button>
+        </div>
+        <div class="wiz-result" id="wiz-result">
+          <div class="wr-head">
+            <div class="wr-badge" id="wr-icon" aria-hidden="true"></div>
+            <div><div class="wr-title" id="wr-title">Your sync method</div><div class="wr-sub" id="wr-sub"></div></div>
+          </div>
+          <div class="wr-steps" id="wr-steps"></div>
+          <div class="wr-note" id="wr-note"></div>
+          <button class="wiz-restart" onclick="wizRestart()"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>Start over</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="p-guides" class="ps">
+  <div class="sec" style="padding-top:120px;">
+    <div class="wrap">
+      <div id="guides-list">
+        <div class="sec-hd rev">
+          <div>
+            <div class="sec-ey">Guides</div>
+            <h2 class="sec-h">Real setups, real decisions</h2>
+            <p class="sec-s">Written from what the community actually figured out, not from feature lists.</p>
+          </div>
+        </div>
+        <div class="filter-row rev" id="gfb" style="margin-bottom:28px;">
+          <button class="fb on" data-g="all">All <span class="fn">10</span></button>
+          <button class="fb" data-g="Workflow">Workflow <span class="fn">2</span></button>
+          <button class="fb" data-g="Beginner">Beginner <span class="fn">2</span></button>
+          <button class="fb" data-g="Use Case">Use Case <span class="fn">2</span></button>
+          <button class="fb" data-g="Tutorial">Tutorial <span class="fn">1</span></button>
+          <button class="fb" data-g="Comparison">Comparison <span class="fn">1</span></button>
+          <button class="fb" data-g="Privacy">Privacy <span class="fn">1</span></button>
+          <button class="fb" data-g="Customization">Customization <span class="fn">1</span></button>
+          <button class="fb" data-g="Troubleshooting">Troubleshooting <span class="fn">1</span></button>
+        </div>
+        <div class="guides-grid" id="guides-grid">
+          <button class="gg rev" data-guide="plugin-bloat" onclick="openGuide('plugin-bloat')">
+            <div class="gg-cat">Workflow</div>
+            <div class="gg-t">Stop installing plugins. Start uninstalling them.</div>
+            <div class="gg-s">Every veteran user has done the bloat cycle at least once. Here is what the other side looks like.</div>
+            <div class="gg-ft"><span class="gg-min">7 min read</span><div class="gg-arr" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></div></div>
+          </button>
+          <button class="gg rev" data-guide="notion-vs-obsidian" onclick="openGuide('notion-vs-obsidian')">
+            <div class="gg-cat">Comparison</div>
+            <div class="gg-t">Coming from Notion? What actually transfers and what does not.</div>
+            <div class="gg-s">Notion refugees show up every week. The friction points are always the same.</div>
+            <div class="gg-ft"><span class="gg-min">8 min read</span><div class="gg-arr" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></div></div>
+          </button>
+          <button class="gg rev" data-guide="ai-in-vault" onclick="openGuide('ai-in-vault')">
+            <div class="gg-cat">Privacy</div>
+            <div class="gg-t">AI in your vault: what the community actually thinks</div>
+            <div class="gg-s">Local vs cloud, real trade-offs, and why this keeps coming up.</div>
+            <div class="gg-ft"><span class="gg-min">6 min read</span><div class="gg-arr" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></div></div>
+          </button>
+          <button class="gg rev" data-guide="student-vault" onclick="openGuide('student-vault')">
+            <div class="gg-cat">Use Case</div>
+            <div class="gg-t">Setting up Obsidian as a student or researcher</div>
+            <div class="gg-s">Medical students, PhD candidates, undergrads. The setups that actually hold up through a degree.</div>
+            <div class="gg-ft"><span class="gg-min">9 min read</span><div class="gg-arr" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></div></div>
+          </button>
+          <button class="gg rev" data-guide="dataview-basics" onclick="openGuide('dataview-basics')">
+            <div class="gg-cat">Tutorial</div>
+            <div class="gg-t">Dataview and Bases: what each one actually does</div>
+            <div class="gg-s">The most-used plugin in the community, explained by use case rather than by syntax.</div>
+            <div class="gg-ft"><span class="gg-min">8 min read</span><div class="gg-arr" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></div></div>
+          </button>
+          <button class="gg rev" data-guide="quick-capture" onclick="openGuide('quick-capture')">
+            <div class="gg-cat">Workflow</div>
+            <div class="gg-t">Quick capture from your phone into Obsidian</div>
+            <div class="gg-s">The Obsidian mobile app is not fast enough for fleeting thoughts. Here is what people actually use instead.</div>
+            <div class="gg-ft"><span class="gg-min">5 min read</span><div class="gg-arr" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></div></div>
+          </button>
+          <button class="gg rev" data-guide="first-vault" onclick="openGuide('first-vault')">
+            <div class="gg-cat">Beginner</div>
+            <div class="gg-t">Your first vault: a no-nonsense setup that actually works</div>
+            <div class="gg-s">For people who opened Obsidian, felt overwhelmed, and closed it again. Start here.</div>
+            <div class="gg-ft"><span class="gg-min">7 min read</span><div class="gg-arr" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></div></div>
+          </button>
+          <button class="gg rev" data-guide="themes-visual" onclick="openGuide('themes-visual')">
+            <div class="gg-cat">Customization</div>
+            <div class="gg-t">Themes, CSS, and making Obsidian look like yours</div>
+            <div class="gg-s">The setup showcases get hundreds of upvotes for a reason. Here is how people actually build them.</div>
+            <div class="gg-ft"><span class="gg-min">6 min read</span><div class="gg-arr" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></div></div>
+          </button>
+          <button class="gg rev" data-guide="writers-setup" onclick="openGuide('writers-setup')">
+            <div class="gg-cat">Use Case</div>
+            <div class="gg-t">Obsidian for writers: fiction, long-form, and everything in between</div>
+            <div class="gg-s">Novelists, bloggers, screenwriters. The setups that hold up past chapter one.</div>
+            <div class="gg-ft"><span class="gg-min">7 min read</span><div class="gg-arr" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></div></div>
+          </button>
+          <button class="gg rev" data-guide="troubleshooting" onclick="openGuide('troubleshooting')">
+            <div class="gg-cat">Troubleshooting</div>
+            <div class="gg-t">Vault running slow? Plugin broken? Common fixes.</div>
+            <div class="gg-s">The problems that come up over and over, and what actually solves them.</div>
+            <div class="gg-ft"><span class="gg-min">5 min read</span><div class="gg-arr" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></div></div>
+          </button>
+        </div>
+      </div>
+      <div id="article-view" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+</main>
+<footer style="border-top:1px solid rgba(255,255,255,0.07);padding:36px 28px;margin-top:0;">
+  <div style="max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;">
+    <span style="font-size:12px;color:rgba(236,234,246,0.26);font-family:var(--sans);">Not affiliated with Obsidian or Dynalist Inc.</span>
+    <div style="display:flex;gap:20px;flex-wrap:wrap;">
+      <a href="/about" style="font-size:12.5px;color:rgba(236,234,246,0.26);text-decoration:none;font-family:var(--sans);" onmouseover="this.style.color='rgba(236,234,246,0.52)'" onmouseout="this.style.color='rgba(236,234,246,0.26)'">About</a>
+      <a href="/privacy" style="font-size:12.5px;color:rgba(236,234,246,0.26);text-decoration:none;font-family:var(--sans);" onmouseover="this.style.color='rgba(236,234,246,0.52)'" onmouseout="this.style.color='rgba(236,234,246,0.26)'">Privacy</a>
+      <a href="/terms" style="font-size:12.5px;color:rgba(236,234,246,0.26);text-decoration:none;font-family:var(--sans);" onmouseover="this.style.color='rgba(236,234,246,0.52)'" onmouseout="this.style.color='rgba(236,234,246,0.26)'">Terms</a>
+      <a href="/contact" style="font-size:12.5px;color:rgba(236,234,246,0.26);text-decoration:none;font-family:var(--sans);" onmouseover="this.style.color='rgba(236,234,246,0.52)'" onmouseout="this.style.color='rgba(236,234,246,0.26)'">Contact</a>
+    </div>
+  </div>
+</footer>
+<nav class="mob-nav" aria-label="Mobile navigation">
+  <button class="mob-nav-btn on" data-p="home" onclick="go('home')">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    Home
+  </button>
+  <button class="mob-nav-btn" data-p="plugins" onclick="go('plugins')">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+    Plugins
+  </button>
+  <button class="mob-nav-btn" data-p="rec" onclick="go('rec')">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    Finder
+  </button>
+  <button class="mob-nav-btn" data-p="sync" onclick="go('sync')">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 21h5v-5"/></svg>
+    Sync
+  </button>
+  <button class="mob-nav-btn" data-p="guides" onclick="go('guides')">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+    Guides
+  </button>
+</nav>
+<script>
+
+const PLUGINS=[
+  {name:"Pocket Bird",cat:"Fun & Extras",score:1221,url:"https://community.obsidian.md",tags:["fun","pet"],isNew:true,isBeta:false,desc:"A virtual desktop pet that flies around your notes while you write. It sounds like a joke. It has the highest score of any plugin in this index. Apparently people needed this."},
+  {name:"Dataview",cat:"Data & Databases",score:1118,url:"https://community.obsidian.md",tags:["database","query","DQL"],isNew:false,isBeta:false,desc:"Query your vault like a database using YAML frontmatter and inline fields. The most-referenced plugin in setup threads by a wide margin. Dataview JS keeps power users around for what Bases cannot handle yet."},
+  {name:"Handwriting to Markdown",cat:"Handwriting & Media",score:910,url:"https://community.obsidian.md",tags:["handwriting","OCR","pdf"],isNew:true,isBeta:false,desc:"Converts handwritten notes from PDF or image to Markdown inside Obsidian. Handles math formulas and works offline once set up."},
+  {name:"Notebook Navigator 3.0",cat:"Navigation & UI",score:499,url:"https://community.obsidian.md",tags:["sidebar","writing","sort"],isNew:true,isBeta:false,desc:"A writer-focused file browser with manual sort, word count targets, and custom group headers. Version 3 is a full rebuild. Passed 500k downloads in its first few months."},
+  {name:"Bases",cat:"Data & Databases",score:435,url:"https://obsidian.md",tags:["tables","native","boards"],isNew:true,isBeta:false,desc:"Obsidian's native structured data layer. Getting close to replacing Dataview for table and board use cases, without needing to write query language."},
+  {name:"Cozy Dashboard",cat:"Navigation & UI",score:431,url:"https://community.obsidian.md",tags:["dashboard","visual","cozy"],isNew:true,isBeta:false,desc:"A visual home screen with a Stardew Valley-inspired aesthetic. Images, folders, journals, and notes in a card layout. Built by a developer who wanted something nicer for their daughter's vault."},
+  {name:"Cornell Marginalia",cat:"Writing & Editing",score:296,url:"https://community.obsidian.md",tags:["cornell","notes","structure"],isNew:true,isBeta:false,desc:"Cornell note structure built into the editor. The two-column layout you used to fake with tables, now native to your markdown workflow. Also includes a dashboard for exam planning and flashcard review."},
+  {name:"True Recall",cat:"Research & Reference",score:288,url:"https://community.obsidian.md",tags:["spaced-repetition","review","memory"],isNew:true,isBeta:false,desc:"Spaced repetition inside your vault. Reviews notes when you actually need to see them, not on a schedule imposed from outside. Available directly from community plugins, no BRAT required."},
+  {name:"Operon",cat:"Productivity & Tracking",score:277,url:"https://community.obsidian.md",tags:["tasks","projects","kanban"],isNew:true,isBeta:false,desc:"A full task and project management system. Inline tasks, file-based tasks, calendar, kanban, recurrence, and time tracking in one plugin. Built to work with both humans and agents."},
+  {name:"Ledger Budget",cat:"Productivity & Tracking",score:253,url:"https://community.obsidian.md",tags:["budget","finance","tracking"],isNew:true,isBeta:false,desc:"Plain-text budget tracking inside Obsidian. Ledger-style entries, nothing external required. Built by someone who needed a simple but powerful tool to sort out their accounts."},
+  {name:"Obsidian DASH",cat:"Navigation & UI",score:252,url:"https://community.obsidian.md",tags:["dashboard","habits","tasks"],isNew:true,isBeta:true,desc:"Daily Action and System Hub. A home screen for your vault with task views, habit trackers, and quick-capture. Open source, still in beta, already solid for daily use."},
+  {name:"ZotFlow",cat:"Research & Reference",score:165,url:"https://community.obsidian.md",tags:["zotero","citations","pdf"],isNew:true,isBeta:false,desc:"Zotero integration covering the reader, annotation import, sync, note linking, and citations in one plugin. Replaces three separate plugins most researchers were running."},
+  {name:"Canvas (Core Plugin)",cat:"Writing & Editing",score:151,url:"https://help.obsidian.md/Plugins/Canvas",tags:["canvas","visual","maps"],isNew:false,isBeta:false,desc:"Obsidian's built-in infinite canvas. Most users underuse it. People who do build timelines, visual MOCs, and scene plans that plain notes cannot match."},
+  {name:"WatchLog",cat:"Productivity & Tracking",score:149,url:"https://community.obsidian.md",tags:["media","tracking","anime"],isNew:true,isBeta:false,desc:"Track films, anime, and shows from inside your vault. Watch history with ratings and notes, all in markdown files you fully control."},
+  {name:"Bidirectional YAML",cat:"Data & Databases",score:130,url:"https://community.obsidian.md",tags:["yaml","frontmatter","links"],isNew:true,isBeta:false,desc:"If note A lists note B in its relations field, B lists A back automatically. Two-way linking through frontmatter without any manual upkeep."},
+  {name:"Portals",cat:"Navigation & UI",score:125,url:"https://community.obsidian.md/plugins/portals",tags:["sidebar","workspace","panels"],isNew:true,isBeta:false,desc:"A fully customizable sidebar panel system with tab stacks, hidden files, frontmatter editor, and property search. A power-user control panel for your vault."},
+  {name:"Sync Embeds",cat:"Data & Databases",score:116,url:"https://community.obsidian.md",tags:["embeds","synced-blocks"],isNew:true,isBeta:false,desc:"Notion-style synced blocks. Write a block once, embed it anywhere, and edits propagate everywhere automatically. Solves a real gap in how Obsidian handles reused content."},
+  {name:"Moments",cat:"Productivity & Tracking",score:101,url:"https://community.obsidian.md",tags:["daily-notes","capture"],isNew:true,isBeta:false,desc:"A lighter daily notes setup. Quick captures that stay out of the way. No full-page journal entry required before you can write anything."},
+  {name:"Iconocolor",cat:"Navigation & UI",score:99,url:"https://community.obsidian.md",tags:["icons","folders","color"],isNew:false,isBeta:false,desc:"Set folder icons and colors in one action instead of two separate plugins. Solves the issue of color gradients breaking when you create or delete a folder."},
+  {name:"The Minimalist Editor",cat:"Writing & Editing",score:86,url:"https://github.com/litegral/the-minimalist-editor",tags:["focus","distraction-free","ADHD"],isNew:true,isBeta:false,desc:"A distraction-free writing mode with a Notion-style table of contents and smooth focus animations. Built by someone with ADHD who needed fewer things competing for attention while writing."},
+  {name:"Auto-Properties",cat:"Data & Databases",score:85,url:"https://community.obsidian.md",tags:["frontmatter","automation","bases"],isNew:true,isBeta:false,desc:"Creates automatically-updating properties in notes based on rules you define. Lightweight and flexible. Designed to give Bases better data to work with without manual frontmatter management."},
+  {name:"Anki Sync (Minimalist)",cat:"Research & Reference",score:91,url:"https://community.obsidian.md",tags:["anki","flashcards","sync"],isNew:true,isBeta:false,desc:"Obsidian-to-Anki sync built because the existing solutions required too much configuration. Maintained for 1.5 years. Open source, minimal setup."},
+  {name:"Rich Text Editor",cat:"Writing & Editing",score:34,url:"https://community.obsidian.md",tags:["rich-text","WYSIWYG","editing"],isNew:true,isBeta:false,desc:"Adds a rich text editing mode using mdxeditor. Useful when editing on mobile or sharing with people who are not comfortable with markdown. Spent 8 months in review before the new plugin portal cleared it instantly."},
+  {name:"Harmony",cat:"Productivity & Tracking",score:31,url:"https://community.obsidian.md",tags:["dashboard","kanban","calendar"],isNew:true,isBeta:false,desc:"A lightweight workspace with a dashboard, kanban board, and calendar in one plugin. Built to avoid the need for multiple heavy plugins just to have a decent workspace."},
+  {name:"Sync Trakt",cat:"Productivity & Tracking",score:27,url:"https://community.obsidian.md",tags:["trakt","media","watch-history"],isNew:true,isBeta:false,desc:"Pulls your Trakt watch history into Obsidian with posters, per-episode timestamps, and Daily Notes integration."},
+  {name:"Relations",cat:"Worldbuilding",score:74,url:"https://community.obsidian.md",tags:["relationships","characters","TTRPG"],isNew:true,isBeta:false,desc:"Map custom relationships between notes, characters, or entities. Works off note properties rather than requiring manual charts. Built for TTRPG and worldbuilding use cases."},
+  {name:"Hex Cartographer",cat:"Worldbuilding",score:64,url:"https://community.obsidian.md",tags:["hexmap","worldbuilding","fantasy"],isNew:true,isBeta:false,desc:"A hex map editor for worldbuilders. Create and annotate hex-grid maps directly in Obsidian. Built by a fantasy novel writer who needed to track a growing world inside their vault."},
+  {name:"Current View",cat:"Navigation & UI",score:2,url:"https://community.obsidian.md",tags:["view-mode","automation"],isNew:true,isBeta:false,desc:"Opens notes in the right editing mode automatically based on rules set by folder, tag, regex, or frontmatter. Solves a small friction that adds up over time."},
+];
+
+let curCat="all",pageQ="";
+const SV=`<svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" stroke="none" style="color:var(--p);opacity:.75"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>`;
+const AV=`<svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>`;
+
+function cardHTML(p){
+  return`<div class="pco"><div class="pc"><div class="pc-top"><div class="ptags"><span class="ptag ptag-cat">${p.cat}</span></div><div class="ptags">${p.isNew?'<span class="ptag ptag-new">New</span>':''}${p.isBeta?'<span class="ptag ptag-beta">Beta</span>':''}</div></div><div class="pc-name">${p.name}</div><div class="pc-desc">${p.desc}</div><div class="ptags">${p.tags.map(t=>`<span class="ptag">${t}</span>`).join('')}</div><div class="pc-ft"><div class="pc-sc">${SV}<span class="sn">${p.score.toLocaleString()}</span></div><a href="${p.url}" target="_blank" rel="noopener noreferrer" class="plink"><span class="plink-t">View</span><span class="plink-i">${AV}</span></a></div></div></div>`;
+}
+function renderTo(id,limit){
+  const g=document.getElementById(id);
+  let list=PLUGINS.filter(p=>{
+    const mc=curCat==="all"||p.cat===curCat;
+    const q=pageQ.toLowerCase();
+    const ms=!q||p.name.toLowerCase().includes(q)||p.desc.toLowerCase().includes(q)||p.tags.some(t=>t.includes(q))||p.cat.toLowerCase().includes(q);
+    return mc&&ms;
+  });
+  if(limit)list=list.slice(0,limit);
+  g.innerHTML=list.length?list.map(cardHTML).join(''):`<div class="no-r"><strong>Nothing found</strong>Try a different search or clear the filter.</div>`;
+}
+document.getElementById('pfb').addEventListener('click',e=>{
+  const b=e.target.closest('.fb');if(!b)return;
+  document.querySelectorAll('#pfb .fb').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');curCat=b.dataset.c;renderTo('pgrid');
+});
+document.getElementById('ps-in').addEventListener('input',e=>{pageQ=e.target.value;renderTo('pgrid');});
+document.getElementById('hs').addEventListener('input',e=>{pageQ=e.target.value;if(e.target.value){go('plugins');renderTo('pgrid');}});
+document.addEventListener('keydown',e=>{if((e.metaKey||e.ctrlKey)&&e.key==='k'){e.preventDefault();document.getElementById('hs').focus();}if(e.key==='Escape')document.activeElement.blur();});
+
+const STACKS={
+  tasks:[{n:"Operon",w:"Full task and project system with kanban, recurring tasks, calendar, and time tracking.",c:null},{n:"Obsidian DASH",w:"A home screen that puts your tasks front and center every day.",c:null},{n:"Moments",w:"For quick daily captures that do not get in the way of actual task management.",c:null}],
+  daily:[{n:"Moments",w:"Lighter than the built-in periodic notes. Better for people who want low friction.",c:null},{n:"Obsidian DASH",w:"Daily action hub with habits, tasks, and review in one screen.",c:null}],
+  research:[{n:"ZotFlow",w:"All-in-one Zotero integration. Replaces three separate plugins most researchers were running.",c:null},{n:"True Recall",w:"Spaced repetition for your own notes. Works well alongside Zotero imports.",c:null},{n:"Anki Sync (Minimalist)",w:"If you use Anki for flashcards, this is the cleanest bridge between the two.",c:"Overlaps with True Recall. Pick one for review, not both."}],
+  writing:[{n:"Notebook Navigator 3.0",w:"The sidebar that makes long-form work feel organized.",c:null},{n:"Cornell Marginalia",w:"Good for structured note-taking during research phases.",c:null},{n:"The Minimalist Editor",w:"Useful if distractions are a problem while drafting.",c:null}],
+  database:[{n:"Dataview",w:"Still the most powerful. Start here for anything complex.",c:null},{n:"Bases",w:"Native Obsidian tables and boards. No query language needed for basic use.",c:"Bases cannot do everything Dataview can yet. Run both and let Bases take over gradually."},{n:"Auto-Properties",w:"Keeps frontmatter populated automatically, giving Bases better data to work with.",c:null}],
+  ai:[{n:"Dataview",w:"Local, no cloud access. Use it as the data layer for any local LLM integration.",c:null},{n:"Auto-Properties",w:"Helps keep metadata consistent so local AI tools have cleaner data.",c:null}],
+  pdf:[{n:"ZotFlow",w:"Best PDF annotation and import workflow if you also use Zotero.",c:null},{n:"Handwriting to Markdown",w:"Converts handwritten PDFs and images to markdown. Works offline.",c:null}],
+  tracking:[{n:"Ledger Budget",w:"Plain-text budget tracking, stays entirely in your vault.",c:null},{n:"WatchLog",w:"Media tracking for films, shows, and anime. All in markdown.",c:null},{n:"True Recall",w:"Review tracking for notes you need to retain long-term.",c:null}],
+};
+const GLABELS={tasks:"Tasks and projects",daily:"Daily notes",research:"Academic research",writing:"Long-form writing",database:"Databases",ai:"AI integration",pdf:"PDFs and reading",tracking:"Personal tracking"};
+let selGoals=new Set();
+function toggleGoal(el){const g=el.dataset.g;selGoals.has(g)?(selGoals.delete(g),el.classList.remove('sel')):(selGoals.add(g),el.classList.add('sel'));document.getElementById('rec-btn').disabled=selGoals.size===0;}
+function selGoal(g){document.querySelectorAll('.gl').forEach(el=>{if(el.dataset.g===g){el.classList.add('sel');selGoals.add(g);}});document.getElementById('rec-btn').disabled=false;}
+function buildRec(){
+  if(!selGoals.size)return;
+  const seen=new Set(),out=[];
+  selGoals.forEach(g=>{(STACKS[g]||[]).forEach(r=>{if(!seen.has(r.n)){seen.add(r.n);out.push(r);}});});
+  document.getElementById('rec-title').textContent=`${out.length} plugin${out.length!==1?'s':''} for ${[...selGoals].map(g=>GLABELS[g]).join(', ')}`;
+  document.getElementById('rstk').innerHTML=out.map((r,i)=>`<div class="rcard"><div class="rnum">${String(i+1).padStart(2,'0')}</div><div style="flex:1"><div style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><div class="rcard-name">${r.n}</div><button onclick="searchForPlugin('${r.n}')" style="font-size:11px;font-weight:600;color:var(--p2);background:var(--pg);border:1px solid rgba(139,120,255,.2);border-radius:999px;padding:4px 12px;cursor:pointer;font-family:var(--sans);white-space:nowrap;transition:all .18s;flex-shrink:0;" onmouseover="this.style.background='rgba(139,120,255,.18)'" onmouseout="this.style.background='var(--pg)'">View in index</button></div><div class="rcard-why">${r.w}</div>${r.c?`<div class="rcard-warn">${r.c}</div>`:''}</div></div>`).join('');
+  document.getElementById('rec-out').classList.add('show');
+  document.getElementById('rec-out').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function searchForPlugin(name){
+  pageQ=name;
+  curCat='all';
+  go('plugins');
+  const inp=document.getElementById('ps-in');
+  if(inp){ inp.value=name; }
+  renderTo('pgrid');
+}
+
+let wizS={};
+function wiz(step,val){if(step===0){wizS.devices=val;showWS(1);}else if(step===1){wizS.priority=val;showWS(2);}else{wizS.tech=val;showWizResult();}}
+function showWS(n){document.querySelectorAll('.wiz-step').forEach(s=>s.classList.remove('on'));document.getElementById('ws'+n).classList.add('on');for(let i=0;i<=n;i++)document.getElementById('wp'+i).classList.add('done');document.getElementById('wiz-result').classList.remove('show');}
+function wizRestart(){wizS={};document.querySelectorAll('.wiz-step').forEach(s=>s.classList.remove('on'));document.getElementById('ws0').classList.add('on');document.getElementById('wiz-result').classList.remove('show');['wp0','wp1','wp2'].forEach((id,i)=>document.getElementById(id).classList[i===0?'add':'remove']('done'));}
+
+const ICO={sync:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 21h5v-5"/></svg>',lock:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>',code:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>',cloud:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>'};
+const SYNC_RES={
+  'mac-iphone_easy_nope':{t:'iCloud Drive',ico:'sync',sub:'Built into your devices. Free, zero extra setup.',steps:[{t:'Enable iCloud Drive',s:'System Settings, then Apple ID, then iCloud Drive. Toggle it on.'},{t:'Move your vault into the Obsidian iCloud folder',s:'Move your vault to the path below.',code:'~/Library/Mobile Documents/iCloud~md~obsidian/Documents/'},{t:'Open on iPhone',s:'Obsidian iOS, then Open folder as vault, then select the vault from iCloud Drive.'}],note:'iCloud sync on Windows is unreliable. If you add a Windows machine later, switch to Syncthing instead.'},
+  'mac-iphone_easy_some':{t:'iCloud Drive',ico:'sync',sub:'Easiest for Apple-only setups.',steps:[{t:'Move vault to iCloud',s:'Move your vault folder to the path below.',code:'~/Library/Mobile Documents/iCloud~md~obsidian/Documents/'},{t:'Open on iPhone',s:'Obsidian iOS, then Open folder as vault, then pick the iCloud folder.'}],note:'iCloud works reliably for Mac and iPhone. Attachment-heavy vaults can be slower.'},
+  'mac-iphone_private_some':{t:'iCloud with local-only sensitive notes',ico:'lock',sub:'Private enough for most people.',steps:[{t:'Use iCloud as above',s:'Apple encrypts data in transit and at rest.'},{t:'Keep sensitive notes local',s:'Create a second vault or folder that does not sync for anything you consider truly private.'}],note:'For zero-knowledge sync where no company holds your keys, self-hosted Syncthing is the right answer.'},
+  'windows-android_easy_nope':{t:'Google Drive and Dropsync',ico:'cloud',sub:'Free, works well on Android.',steps:[{t:'Install Google Drive on Windows',s:'Let it sync your vault folder to Google Drive.'},{t:'Install Dropsync on Android',s:'Use Dropsync to sync the Google Drive folder to local Android storage.'},{t:'Point Obsidian to that folder',s:'In Obsidian Android, open the synced local folder as your vault.'}],note:'Dropsync is free for one folder. The paid version handles bidirectional sync more cleanly.'},
+  'windows-android_private_some':{t:'Syncthing',ico:'lock',sub:'Fully local. No account. No servers.',steps:[{t:'Install Syncthing on Windows',s:'Download from syncthing.net. Run as a background service or on startup.'},{t:'Install Syncthing on Android',s:'Install from Play Store. Add your Windows machine as a device.'},{t:'Share the vault folder',s:'Add your vault in Syncthing on Windows. Accept the share on Android.'},{t:'Open in Obsidian',s:'Point Obsidian Android to the synced local folder.'}],note:'Syncthing is what the community recommends most when privacy matters. No account, no cloud, nothing leaves your devices.'},
+  'windows-android_reliable_yes':{t:'Git with Obsidian Git plugin',ico:'code',sub:'Reliable, full version history.',steps:[{t:'Initialize your vault as a Git repo',s:'Create a private GitHub repo or self-hosted Gitea. Push your vault.'},{t:'Install Obsidian Git plugin',s:'Community plugins, search Obsidian Git, install, then set your auto-push interval.',code:'Auto push interval: 10 minutes'},{t:'Android: use MGit or Termux',s:'MGit gives you a GUI for pull and push on Android. Termux with git is more flexible.'}],note:'Git gives you full version history. Every save is a commit you can roll back. Conflict resolution on mobile is manageable but not fun.'},
+  'mac-android_easy_some':{t:'Syncthing',ico:'sync',sub:'Best cross-ecosystem option. iCloud does not work on Android.',steps:[{t:'Install Syncthing on Mac',s:'brew install syncthing or download from syncthing.net. Enable launch at login.'},{t:'Install Syncthing on Android',s:'Play Store, then Syncthing. Add your Mac as a peer device.'},{t:'Share the vault folder',s:'Add your vault in Syncthing on Mac. Accept the share on Android.'},{t:'Open in Obsidian',s:'Point Obsidian Android to the locally synced folder.'}],note:'Syncthing is the cleanest answer for Mac and Android. Setup takes about 15 minutes and then you forget it exists.'},
+  'desktop-only_easy_nope':{t:'Any cloud folder',ico:'cloud',sub:'Just back it up.',steps:[{t:'Put your vault in a cloud folder',s:'Google Drive, Dropbox, or iCloud all work. Pick whichever you already use.'},{t:'Back up regularly',s:'Desktop-only means sync is less critical than backup. Make sure your cloud service keeps version history.'}],note:'If you ever go mobile, Syncthing is the easiest upgrade path from here.'},
+  'linux_reliable_yes':{t:'Syncthing or Git',ico:'code',sub:'Both work well on Linux.',steps:[{t:'Syncthing',s:'sudo apt install syncthing. Run as a systemd service. Add your other devices.'},{t:'Or Git',s:'Initialize vault as a repo. Obsidian Git plugin handles auto commits. SSH key auth to GitHub or your own server.',code:'git init && git remote add origin git@yourserver:vault.git'}],note:'The Linux community is roughly split between Syncthing (simpler) and Git (more control). Either is reliable.'},
+};
+function showWizResult(){
+  document.querySelectorAll('.wiz-step').forEach(s=>s.classList.remove('on'));
+  ['wp0','wp1','wp2'].forEach(id=>document.getElementById(id).classList.add('done'));
+  const keys=Object.keys(SYNC_RES);
+  const key=`${wizS.devices}_${wizS.priority}_${wizS.tech}`;
+  const match=keys.find(k=>k===key)||keys.find(k=>k.startsWith(`${wizS.devices}_${wizS.priority}`))||keys.find(k=>k.startsWith(wizS.devices))||'mac-android_easy_some';
+  const r=SYNC_RES[match];
+  document.getElementById('wr-icon').innerHTML=ICO[r.ico]||ICO.sync;
+  document.getElementById('wr-title').textContent=r.t;
+  document.getElementById('wr-sub').textContent=r.sub;
+  document.getElementById('wr-steps').innerHTML=r.steps.map((s,i)=>`<div class="ws"><div class="ws-n">${String(i+1).padStart(2,'0')}</div><div><div class="ws-t">${s.t}</div><div class="ws-s">${s.s}</div>${s.code?`<div class="ws-code">${s.code}</div>`:''}</div></div>`).join('');
+  document.getElementById('wr-note').textContent=r.note;
+  document.getElementById('wiz-result').classList.add('show');
+}
+
+const A={
+'plugin-bloat':{cat:'Workflow',title:'Stop installing plugins. Start uninstalling them.',time:'7 min read',body:`<p>Most people hit the same wall around six months in. The vault feels slow, the settings page has 40 entries, and you spend more time troubleshooting plugin conflicts than actually writing. That is plugin bloat, and nearly every long-term user has been through it at least once. Some twice.</p><h2>Why it happens</h2><p>Obsidian is modular by design, and the community plugin library has over 2,700 options as of 2026. That is not a problem on its own. The problem is that plugins are easy to install and easy to forget. You try something for a week, it does not quite fit, and you move on without disabling it. Six months later it is still running in the background.</p><p>The other factor is that Obsidian's core keeps improving. Features that required plugins three years ago are often built in now. Canvas, callouts, properties, live preview. If you set up your vault in 2021 and have not audited since, you are probably running several plugins that replicate functionality Obsidian already handles natively.</p><h2>What the veterans actually did</h2><p>One engineer with 3,200 notes described rebuilding their plugin setup from scratch twice. "This is not the popular plugin list. It is the one that is left after I uninstalled everything I was not actually opening." That framing is useful. Not which plugins are good, but which ones you actually open.</p><blockquote><p>If you only think about a plugin when something breaks, that plugin does not need to be there.</p><cite>Pattern across many community setup threads</cite></blockquote><p>Another user put it differently: the vault that works is the one you actually open. Stop chasing the perfect graph. Build the thing you will use on a Tuesday morning when you are tired.</p><h2>How to run the audit</h2><p>Go to Settings, then Community Plugins. Work through the enabled list. For each plugin, ask: when did I last open something that required this? Not when you last thought it was useful. When you actually used it.</p><p>If the answer is unclear, disable it for two weeks. If nothing breaks and you do not miss it, uninstall it. Most bloated setups have a core of 6 to 10 plugins that genuinely get used daily, surrounded by 20 to 30 that do not.</p><h2>What usually survives the cut</h2><ul><li><strong>Templater.</strong> People would quit Obsidian before losing this one.</li><li><strong>Dataview or Bases.</strong> Only if you are actively writing queries, not just as insurance.</li><li><strong>One task management plugin.</strong> Operon and Tasks are the most common picks. Not both.</li><li><strong>A custom file browser.</strong> Only if the default one genuinely bothers you.</li><li><strong>Whatever handles your daily note workflow.</strong> Usually Templater plus one more thing.</li></ul><h2>The honest count</h2><p>Veteran users who share their setups tend to land between 6 and 14 active plugins. Not because they could not install more. Because they tried everything and deleted what did not earn its place.</p><p>The 2026 community plugin influx is real. There was a backlog of over 2,100 plugins waiting for review that got cleared in days when Obsidian launched their new review system. More plugins are coming. The audit habit matters more now than it did a year ago.</p><h2>One thing worth knowing</h2><p>Startup time scales with plugin count. If your vault takes more than a second or two to open, disabling half your plugins is the fastest way to find the culprit. Disable everything, re-enable in batches, and time it. The problem is usually one plugin, not ten.</p><div class="art-faq"><p class="faq-q" itemscope itemtype="https://schema.org/Question"><span itemprop="name">How many Obsidian plugins is too many?</span></p><p class="faq-a" itemscope itemtype="https://schema.org/Answer"><span itemprop="text">According to ObsidianPluginIndex's analysis of community setup threads, most experienced users end up with 6 to 14 active plugins after a real audit. Startup time and conflict risk both increase with plugin count. If your vault takes more than 2 seconds to open, plugin count is usually the first thing to investigate.</span></p><p class="faq-q" itemscope itemtype="https://schema.org/Question"><span itemprop="name">Which Obsidian plugins do most long-term users keep?</span></p><p class="faq-a" itemscope itemtype="https://schema.org/Answer"><span itemprop="text">According to ObsidianPluginIndex's analysis: Templater is the most universally kept plugin. Dataview or Bases is kept by users who actively use queries. One task management plugin (Operon or Tasks) and one file browser (usually Notebook Navigator) round out the typical minimal setup.</span></p></div><div class="pill-row"><span class="pill">workflow</span><span class="pill">plugins</span><span class="pill">setup</span><span class="pill">performance</span></div>`},
+'notion-vs-obsidian':{cat:'Comparison',title:'Coming from Notion? What actually transfers and what does not.',time:'8 min read',body:`<p>The pattern shows up every week. Someone is fed up with Notion. Maybe it is the AI features being pushed on them. Maybe it is the lag on a big database. Maybe it is the fact that years of notes live on someone else's server. They move to Obsidian and spend two weeks rebuilding everything.</p><h2>What transfers easily</h2><p>Plain text notes come over fine. Most Notion-to-Obsidian export tools produce markdown that is clean enough to work with. If your Notion usage was mostly writing, linking between pages, and organizing by tags, the move is genuinely straightforward. One user migrated six years of TTRPG notes, campaigns, and worldbuilding material and ended up with a custom publishing pipeline to an Astro static site. It took two weeks of evenings, but it worked.</p><h2>What takes real work</h2><p>Databases. This is always the hard part. Notion's relational databases with rollups, linked views, and formula properties do not have a direct equivalent in Obsidian. The closest options are Dataview for queries and Bases for visual tables, but neither is quite the same thing.</p><p>The users who struggle most with migration are the ones who try to rebuild their Notion database structure exactly. The ones who do well step back and ask what they actually needed the database to do, then build something in Obsidian that serves that need without trying to replicate the original shape.</p><blockquote><p>It took two weeks of evenings, restructuring, consolidating, going over revisions. Six years of TTRPG notes, campaigns, worldbuilding. Eventually I had a custom publishing pipeline to an Astro site. Worth it.</p><cite>From a migration post with 502 upvotes</cite></blockquote><h2>What you gain</h2><p>Your files are just files. Markdown lives on your computer, opens in any text editor, and will not disappear if Obsidian shuts down. The local-first argument is real. The speed difference is noticeable if you have ever worked in a large Notion database. Backlinks are genuinely useful for catching connections you would not have noticed otherwise.</p><h2>What you lose</h2><p>Collaborative editing. Notion handles real-time multiplayer on documents naturally. Obsidian does not. Mobile experience also takes more setup. Notion's ability to embed YouTube videos, Figma files, and other content directly is not something Obsidian replicates cleanly.</p><h2>The practical answer</h2><p>Most people who migrate do not go back. Before migrating, spend a week listing every way you actually share or collaborate on Notion content. If the answer is "I do not," the move is probably worth it.</p><div class="art-faq"><p class="faq-q" itemscope itemtype="https://schema.org/Question"><span itemprop="name">Is Obsidian better than Notion for personal use?</span></p><p class="faq-a" itemscope itemtype="https://schema.org/Answer"><span itemprop="text">According to ObsidianPluginIndex's analysis of community migration threads, Obsidian is generally preferred for personal knowledge management because notes are stored locally as plain markdown files, there is no subscription required for basic use, and the plugin ecosystem is significantly more powerful for individual workflows. Notion has advantages for team collaboration and ease of mobile use.</span></p><p class="faq-q" itemscope itemtype="https://schema.org/Question"><span itemprop="name">Can you import Notion notes into Obsidian?</span></p><p class="faq-a" itemscope itemtype="https://schema.org/Answer"><span itemprop="text">Yes. Notion supports markdown export, and several community tools convert Notion exports into Obsidian-compatible markdown. Plain text pages transfer cleanly. Database content requires more work because Obsidian handles structured data differently.</span></p></div><div class="pill-row"><span class="pill">notion</span><span class="pill">migration</span><span class="pill">comparison</span><span class="pill">databases</span></div>`},
+'ai-in-vault':{cat:'Privacy',title:'AI in your vault: what the community actually thinks',time:'6 min read',body:`<p>There is a thread that gets posted in some form at least once a week. Someone asks whether connecting AI to their vault is a good idea. The responses are not particularly balanced, and the pattern is consistent enough to be worth writing down clearly.</p><h2>The split</h2><p>The community is not uniformly opposed to AI in Obsidian. It is opposed to one specific version of it: sending note contents to external servers. A post with 690 upvotes made the case directly: "I cannot bear the idea of giving an AI company access to my personal notes just for the minimal organizational improvement." The top comments agreed.</p><p>The concern is not about whether the AI is useful. It is about the exchange. Personal notes contain things people would not say publicly. Medical history. Relationship difficulties. Financial details. Sending all of that to a company's servers for processing is a different kind of data sharing than uploading a document to Google Docs.</p><blockquote><p>I am fine with local LLM and RAG. Not cloud ones. People are sharing everything with AI companies without thinking about it.</p><cite>Top comment from that thread</cite></blockquote><h2>Where local AI fits</h2><p>Local LLM setups get a noticeably warmer reception. Running Ollama locally, connecting it to your vault through a plugin that does not send data anywhere, and using it for summarization, linking suggestions, or question-answering against your own notes is considered acceptable. Your data stays on your machine.</p><p>The trade-offs are real. Running a capable local model requires hardware. The models available locally are not as capable as the large cloud models on complex reasoning tasks. But for in-vault tasks like finding related notes, suggesting links, or summarizing long documents, local models are often capable enough.</p><h2>The tool that keeps coming up</h2><p>Smart Connections is the most commonly mentioned AI plugin. It creates embeddings from your notes locally (or optionally via API) and uses them to suggest related content. The purely local version of this workflow avoids sending content to external servers entirely.</p><h2>What Obsidian itself does</h2><p>Obsidian does not send your notes anywhere. The risk comes entirely from third-party plugins that use cloud AI APIs. Before installing any AI plugin, it is worth checking what network requests it makes. The source code for community plugins is public on GitHub.</p><h2>The reasonable middle ground</h2><p>Most people who think carefully about this land in roughly the same place: local processing is fine, cloud processing requires explicit consent and awareness of what you are sharing. The community consensus is not "no AI ever" but "know exactly what is happening to your data."</p><div class="art-faq"><p class="faq-q" itemscope itemtype="https://schema.org/Question"><span itemprop="name">Does Obsidian send my notes to AI?</span></p><p class="faq-a" itemscope itemtype="https://schema.org/Answer"><span itemprop="text">Obsidian itself does not send your notes to any AI service. The application is local-first and stores nothing on external servers unless you use Obsidian Sync or Publish. The risk comes from third-party community plugins that connect to cloud AI APIs. Check each plugin's documentation and source code before installing.</span></p><p class="faq-q" itemscope itemtype="https://schema.org/Question"><span itemprop="name">What is the best local AI plugin for Obsidian?</span></p><p class="faq-a" itemscope itemtype="https://schema.org/Answer"><span itemprop="text">According to ObsidianPluginIndex's analysis: Smart Connections is the most commonly recommended plugin for AI-powered note linking without cloud dependencies. It can create embeddings locally using Ollama or other local model servers. Semantic Auto-Linker is another option for vault-wide semantic linking without sending data externally.</span></p></div><div class="pill-row"><span class="pill">AI</span><span class="pill">privacy</span><span class="pill">local LLM</span><span class="pill">Smart Connections</span></div>`},
+'student-vault':{cat:'Use Case',title:'Setting up Obsidian as a student or researcher',time:'9 min read',body:`<p>Students are one of the most active groups in the Obsidian community, and their setups tend to be some of the most interesting to look at. Medical students, PhD candidates, undergrads doing coursework, language learners. The approaches vary a lot, but the setups that actually hold up through a degree share a few things in common.</p><h2>Start with what you actually need to do</h2><p>One health science student described it well: "I am not a young whizz coder that finds this stuff easy. Just a normal, mature student who is discovering Obsidian." Her setup worked because it was built around what she actually needed. Dataview databases for anatomy content. A literature tracker. Image galleries linked to notes. Nothing was there because it looked impressive on a screenshot.</p><blockquote><p>The vault that works is the one you actually open. Stop chasing the perfect graph.</p><cite>Paraphrase of a 341-upvote post</cite></blockquote><h2>The plugin stack that shows up most in student setups</h2><ul><li><strong>ZotFlow or similar Zotero integration.</strong> If you read academic papers, getting highlights and annotations into Obsidian is worth setting up properly.</li><li><strong>Dataview or Bases.</strong> For organizing notes by course, topic, date, or status. Dataview is more powerful. Bases requires less setup.</li><li><strong>True Recall or Anki Sync.</strong> If spaced repetition is part of your study method, one of these belongs in your setup. True Recall works entirely inside Obsidian. Anki Sync connects to Anki if you already use it.</li><li><strong>Templater.</strong> For consistent lecture note format across all your courses.</li><li><strong>Cornell Marginalia.</strong> Specifically for structured note-taking. The two-column Cornell layout is built into the editor rather than faked with tables.</li></ul><h2>On PDFs</h2><p>PDFs are a consistent pain point for students. Research papers, lecture slides, textbooks, scanned handouts. The built-in PDF viewer works for reading, but moving content into your notes takes manual effort.</p><p>ZotFlow handles research papers well if you use Zotero. For handwritten or scanned PDFs, the Handwriting to Markdown plugin converts them to markdown locally, including math formulas. One workflow that comes up in academic threads: annotate PDFs in Zotero, import annotations into Obsidian via ZotFlow, then write synthesis notes that reference the imported content.</p><h2>Language learners specifically</h2><p>Vocabulary tracking, example sentences, grammar rules, reading notes. The most common setup involves Dataview tables for vocabulary with spaced repetition flags, plus either Anki Sync or True Recall for review. A useful pattern: a note per word or grammar concept with a frontmatter field for the language and proficiency level. Dataview can then generate a study queue by querying for items not reviewed in the last N days.</p><h2>The folder structure question</h2><p>Most students start with a folder per course and regret it by their second year when notes start relating to each other across subjects. A flatter structure with good tagging and frontmatter tends to age better. But this is genuinely personal. If course-based folders work for you, do not change them because someone online said links are better.</p><h2>One thing that consistently helps</h2><p>A daily note template that takes 30 seconds to fill out. Not a dashboard. Not a habit tracker. Just: what are you working on today, what do you need to remember, and a space to dump anything that comes up. Most students who stick with Obsidian long-term have some version of this.</p><h2>What not to spend time on</h2><p>The graph view is satisfying to look at and mostly useless for studying. Build the graph as a side effect of linking notes, not as a goal. Plugins that track writing statistics or add animations to the interface are fine if they make you happy. They will not help you pass your exams or finish your thesis.</p><div class="art-faq"><p class="faq-q" itemscope itemtype="https://schema.org/Question"><span itemprop="name">Is Obsidian good for students?</span></p><p class="faq-a" itemscope itemtype="https://schema.org/Answer"><span itemprop="text">According to ObsidianPluginIndex's analysis of community discussions, Obsidian works well for students who are comfortable with markdown and willing to spend time on initial setup. It is particularly strong for research-heavy workflows with Zotero integration, spaced repetition for exam preparation, and long-term knowledge building across courses.</span></p><p class="faq-q" itemscope itemtype="https://schema.org/Question"><span itemprop="name">What is the best Obsidian setup for medical students?</span></p><p class="faq-a" itemscope itemtype="https://schema.org/Answer"><span itemprop="text">According to ObsidianPluginIndex's analysis: medical students typically benefit most from Dataview or Bases for organizing content by system or topic, Cornell Marginalia for structured lecture notes, and either True Recall or Anki Sync for spaced repetition review. Handwriting to Markdown is useful for converting handwritten notes. A consistent daily note template is mentioned in most successful medical student setups.</span></p><p class="faq-q" itemscope itemtype="https://schema.org/Question"><span itemprop="name">How do I use Zotero with Obsidian?</span></p><p class="faq-a" itemscope itemtype="https://schema.org/Answer"><span itemprop="text">The most complete Zotero integration for Obsidian in 2026 is ZotFlow, which covers the PDF reader, annotation import, sync, note linking, and citations in one plugin. It works by connecting to your Zotero library and importing highlights and notes as Obsidian markdown files that you can link and query with Dataview.</span></p></div><div class="pill-row"><span class="pill">students</span><span class="pill">research</span><span class="pill">academic</span><span class="pill">zotero</span><span class="pill">spaced repetition</span></div>`},
+};
+
+
+,'dataview-basics':{cat:'Tutorial',title:'Dataview and Bases: what each one actually does',time:'8 min read',body:`
+<p>Dataview is the most referenced plugin in the Obsidian community by a significant margin. It shows up in nearly every setup thread, every "what plugins do you use" post, and most intermediate tutorials. And yet a lot of people install it, see a blank query result, and quietly never use it again. This guide explains what it actually does and when to reach for it over Bases.</p>
+
+<h2>The core idea behind Dataview</h2>
+<p>Dataview treats your vault as a database. Every note is a row. The frontmatter properties in each note are columns. Dataview lets you write queries that filter, sort, and display those notes in tables, lists, task views, and calendars.</p>
+<p>The simplest real use case: you have 40 book notes, each with a frontmatter field called "status" that you set to either "reading," "finished," or "want-to-read." A basic Dataview query can generate a table of all your reading-status books, sorted by date added, displayed anywhere in your vault. Without Dataview, you would have to maintain that table manually.</p>
+
+<h2>What Dataview actually looks like</h2>
+<p>A basic Dataview query sits inside a code block marked as "dataview." It looks like this in practice:</p>
+<p>You write something like: list all notes from the "Books" folder where status equals "reading," sorted by the date property. Dataview reads your vault, finds the matching notes, and renders the list inline in whatever note you put the query in. When you update a note's status property, the list updates automatically the next time you open the note.</p>
+<p>Dataview JS is the more powerful version. It uses JavaScript instead of the simpler query language and can do almost anything: generate charts, calculate sums across your notes, build dynamic dashboards. The trade-off is that it requires some comfort with code.</p>
+
+<h2>What Bases is and how it differs</h2>
+<p>Bases is Obsidian's own built-in answer to structured data. It was released as a core plugin and does not require installation. Instead of writing a query in a code block, you create a .base file that opens as a visual table or card view of your notes.</p>
+<p>The key difference: Bases is visual and interactive. You filter notes using a point-and-click interface, rearrange columns by dragging them, and switch between table, card, and list views without writing any syntax. For users who found Dataview's query language intimidating, Bases is a much lower barrier.</p>
+<p>The limitation is that Bases cannot do everything Dataview can. Complex calculations, JavaScript-powered transformations, custom rendering. Those still belong to Dataview. According to ObsidianPluginIndex's analysis of community threads, the most common pattern in 2026 is running both: Bases for day-to-day browsing and simple filters, Dataview JS for the complex dashboards that need more power.</p>
+
+<h2>When to use Dataview</h2>
+<ul>
+  <li>You want to automatically list notes that match specific criteria (status, tag, date, author, rating)</li>
+  <li>You want a dashboard that shows recently modified notes, tasks due this week, or reading progress</li>
+  <li>You want to aggregate data across notes (sum reading times, count notes by category)</li>
+  <li>You are comfortable with or willing to learn a query language</li>
+</ul>
+
+<h2>When to use Bases instead</h2>
+<ul>
+  <li>You want to browse and filter notes visually without writing syntax</li>
+  <li>You need a card view with images pulled from note properties</li>
+  <li>You want to switch quickly between table, card, and list layouts</li>
+  <li>You are new to Obsidian and want structured views without a learning curve</li>
+</ul>
+
+<h2>A real example: the medical student case</h2>
+<p>A health science student shared a setup that used Dataview databases to display medical school files with image galleries for anatomy content and a literature tracker for research papers. The card view in Bases (which at that point was newer) showed muscle images and drug information cards organized like a visual index. She used Dataview for the more complex queries (recent papers, study session logs) and Bases for the visual browsing. That combination is representative of how most power users end up using both tools.</p>
+
+<h2>The practical starting point</h2>
+<p>If you are new to both: start with Bases. Create a .base file, point it at a folder of notes, and explore what it shows you. Get comfortable with filtering and sorting by property. Once you hit something Bases cannot do, that is the moment to look at Dataview. The learning curve on Dataview is real but worth it for anyone whose workflow involves a lot of cross-note querying.</p>
+
+<div class="art-faq">
+<p class="faq-q" itemscope itemtype="https://schema.org/Question"><span itemprop="name">What is the difference between Dataview and Bases in Obsidian?</span></p>
+<p class="faq-a" itemscope itemtype="https://schema.org/Answer"><span itemprop="text">According to ObsidianPluginIndex's analysis: Dataview is a community plugin that lets you query your vault using a SQL-like language or JavaScript, producing dynamic tables, lists, and dashboards from your notes' frontmatter. Bases is Obsidian's built-in core plugin that provides a visual, point-and-click interface for filtering and displaying notes in table, card, and list views without writing any code. Bases is easier to start with. Dataview is more powerful for complex queries and calculations. Most experienced users run both.</span></p>
+<p class="faq-q" itemscope itemtype="https://schema.org/Question"><span itemprop="name">Is Dataview still worth using in 2026?</span></p>
+<p class="faq-a" itemscope itemtype="https://schema.org/Answer"><span itemprop="text">Yes. According to ObsidianPluginIndex's analysis of community setup threads, Dataview remains the most referenced plugin in the Obsidian community in 2026. While Bases has taken over many of the simpler use cases, Dataview JS is still the only option for complex calculations, custom JavaScript rendering, and advanced vault dashboards. The community consensus is to use Bases for visual browsing and Dataview for anything Bases cannot handle.</span></p>
+</div>
+<div class="pill-row"><span class="pill">dataview</span><span class="pill">bases</span><span class="pill">databases</span><span class="pill">frontmatter</span></div>`},
+
+'quick-capture':{cat:'Workflow',title:'Quick capture from your phone into Obsidian',time:'5 min read',body:`
+<p>The Obsidian mobile app is good for reading and editing. It is not fast enough for capturing a thought before it disappears. Loading the app, navigating to the right note, and typing before you forget what you were trying to write takes too long. This is not a criticism. It is just the nature of a full-featured app versus a capture tool.</p>
+<p>The community has worked out several solutions. According to ObsidianPluginIndex's analysis of mobile workflow threads, these are the methods that actually get used.</p>
+
+<h2>iOS Shortcuts (free, no extra app)</h2>
+<p>Apple Shortcuts can write directly to files on iCloud Drive, which means they can append text directly to a note in your Obsidian vault if your vault is stored in iCloud. The workflow: tap a shortcut widget on your home screen, type or dictate your thought, and it appends to your daily note with a timestamp. No app to load. One tap.</p>
+<p>The setup takes about 10 minutes once. You create a shortcut that asks for text input, then writes that input to a file path in your iCloud Obsidian folder. If your vault uses iCloud sync, the note updates on your desktop the next time both devices are connected.</p>
+
+<h2>The Obsidian share extension</h2>
+<p>Obsidian's mobile apps include a share extension. From any app with a share button (Safari, Chrome, YouTube, Maps), you can tap Share and select Obsidian. It opens a small dialog that lets you send the content to a specific note or create a new one. For web links and text snippets shared from other apps, this is often the fastest method because you never have to switch to Obsidian manually.</p>
+
+<h2>Apple Notes as an inbox</h2>
+<p>A significant portion of the community uses Apple Notes purely as a capture inbox, with a regular habit of moving notes to Obsidian during a weekly review. The argument: Apple Notes opens in under a second, has zero friction, and you are probably already using it. The counter-argument: it creates a two-step process and things get stuck in the inbox.</p>
+
+<h2>Markie (third-party, free)</h2>
+<p>A community developer built Markie specifically for this problem. It is a minimal iOS and Android app that appends text to a specific note in your vault. The interface is a single text input and a send button. If you use iCloud or Syncthing, the appended text shows up in Obsidian the next time your devices sync. Worth trying if the Shortcuts approach feels too technical to set up.</p>
+
+<h2>The Obsidian CLI (desktop → mobile round-trip)</h2>
+<p>Obsidian added a CLI that includes an append command. From any terminal or shortcut that can run a command, you can append text to any note in your vault. On iOS this is accessible via the Shortcuts "Run Script" action if you have a-Shell or similar installed. More technical but very clean once set up.</p>
+
+<h2>Voice to note</h2>
+<p>The Voice MD plugin adds voice transcription to Obsidian. Version 1.4.0 added capture directly from the iPhone Action Button, which means one button press starts recording and the transcript lands in your daily note. Requires an OpenAI API key and sends audio to OpenAI for transcription, which is worth knowing before setting it up.</p>
+
+<h2>Which one to pick</h2>
+<p>If you are on Apple devices with iCloud sync: try the Shortcuts method first. It takes 10 minutes to set up and costs nothing. If you want something faster to get started: the share extension and Apple Notes inbox both work without any setup. If you are on Android: Markie is the most recommended dedicated capture app in community threads.</p>
+
+<div class="art-faq">
+<p class="faq-q" itemscope itemtype="https://schema.org/Question"><span itemprop="name">How do I quickly capture notes to Obsidian from my phone?</span></p>
+<p class="faq-a" itemscope itemtype="https://schema.org/Answer"><span itemprop="text">According to ObsidianPluginIndex's analysis of mobile workflow discussions: the most common solutions are iOS Shortcuts (appends text directly to an iCloud-synced Obsidian note with one tap), the built-in Obsidian share extension (works from any app with a share button), Apple Notes as a capture inbox (reviewed and moved to Obsidian periodically), and the Markie app (a minimal third-party app built specifically for fast capture to Obsidian on iOS and Android).</span></p>
+<p class="faq-q" itemscope itemtype="https://schema.org/Question"><span itemprop="name">What is the fastest way to get a thought into Obsidian?</span></p>
+<p class="faq-a" itemscope itemtype="https://schema.org/Answer"><span itemprop="text">According to ObsidianPluginIndex's analysis: on iPhone, an iOS Shortcut that appends to your daily note is the fastest method after initial setup. One tap on a widget, type or dictate, done. The Obsidian mobile app itself is too slow for fleeting captures. On Android, Markie provides similar one-tap capture functionality.</span></p>
+</div>
+<div class="pill-row"><span class="pill">mobile</span><span class="pill">iOS</span><span class="pill">capture</span><span class="pill">shortcuts</span></div>`},
+
+'first-vault':{cat:'Beginner',title:'Your first vault: a no-nonsense setup that actually works',time:'7 min read',body:`
+<p>Obsidian has a documented pattern: someone installs it, watches a two-hour YouTube setup video, spends a weekend building an elaborate system, gets overwhelmed, and closes the app. Then they try again six months later and do the same thing.</p>
+<p>The community's honest take on this, from a post with 341 upvotes: Obsidian helped most when people stopped trying to make it impressive. This guide is for the first-time setup that you will actually keep using.</p>
+
+<h2>Before you install anything</h2>
+<p>Resist the plugin list for at least two weeks. Seriously. The biggest mistake new Obsidian users make is installing 20 plugins based on someone else's setup before they have figured out what they actually need. Your second-week problems are different from your first-day problems. Solve your first-day problems first.</p>
+<p>The core app handles: markdown notes, internal links, tags, folders, a graph view, backlinks, a PDF viewer, and templates. That is already more than most people need to get started.</p>
+
+<h2>The only folder structure you need on day one</h2>
+<p>Start with three folders and nothing else:</p>
+<ul>
+  <li>Inbox: everything you capture goes here first</li>
+  <li>Notes: anything you have processed and want to keep</li>
+  <li>Archive: anything finished or no longer relevant</li>
+</ul>
+<p>This is not a permanent system. It is a starting point that keeps you from spending two hours on folder taxonomy before you have written a single note. The taxonomy can come later, once you know what kinds of notes you actually take.</p>
+
+<h2>The one setting worth changing on day one</h2>
+<p>Go to Settings, then Files and Links, and turn on "Automatically update internal links." This means when you rename a note, all links pointing to it update automatically. Without this, renaming a note breaks every link to it.</p>
+
+<h2>Your first week: just write notes</h2>
+<p>Write notes about whatever you are working on. Do not worry about linking everything. Do not worry about tags. Do not worry about the graph. Just write. The point of the first week is to find out whether the basic writing experience works for you, not to build a perfect system.</p>
+<p>If you find yourself wanting to connect two notes, use Obsidian's internal link syntax: double brackets around the note name. That is the entire linking system. It is simple on purpose.</p>
+
+<h2>The first plugin worth installing: Templater</h2>
+<p>After your first week, if you are still using Obsidian, install Templater. It lets you create note templates that auto-populate with dates, filenames, and other variables. The minimum useful template is a daily note with today's date as the title and a few blank sections: what you worked on, what you want to remember, and a capture area for anything else.</p>
+<p>One template that 30 seconds to fill out is worth more than a beautiful system you never maintain.</p>
+
+<h2>What "second brain" actually means in practice</h2>
+<p>The term gets thrown around a lot and tends to create unrealistic expectations. A community member put it well: Obsidian is useful for information about your personal life, your own projects, your own thoughts. It is less useful as a Wikipedia clone where you try to capture everything interesting you read.</p>
+<p>The most sustainable use of Obsidian is as a place to put things you will need to find again. If you are unlikely to search for it, you probably do not need to save it.</p>
+
+<h2>When to add more plugins</h2>
+<p>Add a plugin when you hit a specific friction point that the core app cannot solve. "I wish I could track the status of my reading list without manually maintaining a table" is a reason to look at Dataview or Bases. "I saw a cool plugin on Reddit" is not.</p>
+<p>According to ObsidianPluginIndex's analysis: users who start with fewer plugins and add them as needed tend to have more stable, maintainable setups than users who install everything upfront. The audit cycle (installing too much, then stripping back) is so common it has become its own genre of community post.</p>
+
+<h2>The one thing that keeps people using Obsidian</h2>
+<p>A consistent entry point. Whether it is a daily note you open every morning, an inbox note you dump everything into, or a project note you keep open while working. The people who stick with Obsidian long-term almost always have one note they go to first. Build that one habit before building anything else.</p>
+
+<div class="art-faq">
+<p class="faq-q" itemscope itemtype="https://schema.org/Question"><span itemprop="name">How should a beginner start with Obsidian?</span></p>
+<p class="faq-a" itemscope itemtype="https://schema.org/Answer"><span itemprop="text">According to ObsidianPluginIndex's analysis of beginner community threads: start with no plugins for at least two weeks. Use three folders (Inbox, Notes, Archive) as a starting structure. Turn on automatic internal link updating in settings. Write notes about whatever you are working on without worrying about organization. Add the Templater plugin after your first week if you are still using the app. Add other plugins only when you hit a specific problem the core app cannot solve.</span></p>
+<p class="faq-q" itemscope itemtype="https://schema.org/Question"><span itemprop="name">How many plugins should a beginner install in Obsidian?</span></p>
+<p class="faq-a" itemscope itemtype="https://schema.org/Answer"><span itemprop="text">According to ObsidianPluginIndex's analysis: beginners should install zero plugins for the first week or two. The most common mistake new users make is installing 20 plugins based on someone else's setup before knowing what they personally need. The core Obsidian app handles most basic note-taking needs without any plugins. Start with just Templater after the first week if you find yourself wanting consistent note structure.</span></p>
+</div>
+<div class="pill-row"><span class="pill">beginner</span><span class="pill">getting started</span><span class="pill">setup</span><span class="pill">Templater</span></div>`},
+};
+
+
+,'themes-visual':{cat:'Customization',title:'Themes, CSS, and making Obsidian look like yours',time:'6 min read',body:`
+<p>The vault showcase posts get more attention than almost anything else in the community. A health science student shared her setup built around the Velocity theme with anatomy image galleries and a literature tracker, and hundreds of people asked if they could download the whole vault. A classics student's homepage built with DataviewJS got 251 upvotes and a comment that read: "Can't wait for my iPad to explode trying to replicate this."</p>
+<p>People care about how their vault looks. That is not vanity. If you open something and it feels pleasant to be inside, you use it more.</p>
+
+<h2>Themes: the fastest way to change everything</h2>
+<p>Obsidian ships with a default theme that is fine and not interesting. Community themes are free, installed in two clicks, and some of them are genuinely beautiful. Go to Settings, then Appearance, then Manage, and browse. You can preview themes before applying them.</p>
+<p>The ones that come up most in community setup posts in 2026:</p>
+<ul>
+  <li><strong>Minimal.</strong> Clean, distraction-free, good for people who want to focus on text. Pairs well with the Minimal Theme Settings plugin that gives you granular control over colors and fonts without touching CSS.</li>
+  <li><strong>Things.</strong> A warmer, slightly more editorial feel. Popular with writers and people coming from Bear.</li>
+  <li><strong>Shimmering Focus.</strong> Good dark mode, low visual noise. Common in developer setups.</li>
+  <li><strong>AnuPpuccin.</strong> Colorful, customizable, heavily used in the aesthetic setup posts. If you have seen a pastel vault screenshot, this is probably it.</li>
+  <li><strong>Catppuccin.</strong> Soft color palette, four variants from light to dark. Often paired with custom CSS for a very polished look.</li>
+</ul>
+
+<h2>CSS snippets: small changes, big difference</h2>
+<p>You do not need to understand CSS to use snippets. A snippet is a small text file you drop into a folder and enable with one toggle. They do things themes cannot: change the width of your readable line length, add colored borders to blockquotes, make folder icons bigger, style specific tags differently.</p>
+<p>The snippets folder lives at your vault root, inside <code>.obsidian/snippets/</code>. Create a file ending in <code>.css</code>, paste a snippet in, go to Settings, then Appearance, then CSS Snippets, and enable it. That is the entire workflow.</p>
+<p>Good places to find snippets: the Obsidian Discord's <code>#appearance</code> channel, the forums, and the GitHub repos of popular themes often include a snippets folder.</p>
+
+<h2>The homepage</h2>
+<p>A lot of the impressive vault screenshots are mostly just a well-designed homepage note. One user built their homepage in DataviewJS with a greeting that changes by time of day, an exam countdown, and a task list filtered to what is due today. Another built theirs purely with CSS and static markdown, no plugins at all. The Cozy Dashboard plugin gives you a point-and-click interface for building visual homepages without needing to write code.</p>
+<p>The homepage is not required. It is nice to have if you find yourself wanting a clear landing spot when you open the app. If you do not, skip it.</p>
+
+<h2>Banners</h2>
+<p>A lot of setup posts use banner images at the top of notes. The Banners plugin lets you add a header image to any note using a single frontmatter property. You point it at an image file in your vault or a URL, and it displays as a full-width header when you open the note. Simple to set up and makes a visual difference.</p>
+
+<h2>The honest caveat</h2>
+<p>Aesthetic work is easy to spend three hours on without producing a single useful note. The setups that look the best in screenshots are often built by people who have already been using Obsidian for a year and know exactly what they need. Starting with aesthetics tends to produce beautiful vaults that nobody maintains.</p>
+<p>Get the workflow working first. Then make it look the way you want. The themes will still be there.</p>
+
+<div class="art-faq">
+<p class="faq-q" itemscope itemtype="https://schema.org/Question"><span itemprop="name">What is the best Obsidian theme?</span></p>
+<p class="faq-a" itemscope itemtype="https://schema.org/Answer"><span itemprop="text">According to ObsidianPluginIndex's analysis of community setup posts: the most commonly used themes in 2026 are Minimal (clean, pairs well with the Minimal Theme Settings plugin), AnuPpuccin (colorful, popular in aesthetic setup posts), Catppuccin (soft palette, four variants), Things (warmer, popular with writers), and Shimmering Focus (low visual noise, common in developer setups). The right theme depends on whether you prefer a minimal writing environment or a more visually expressive one.</span></p>
+<p class="faq-q" itemscope itemtype="https://schema.org/Question"><span itemprop="name">How do I add CSS snippets to Obsidian?</span></p>
+<p class="faq-a" itemscope itemtype="https://schema.org/Answer"><span itemprop="text">Create or download a .css file and place it in your vault's .obsidian/snippets/ folder. Then go to Settings, then Appearance, then CSS Snippets, and toggle the snippet on. Changes apply immediately. Snippets can change line width, blockquote styling, font sizes, tag colors, and many other visual properties that themes do not control.</span></p>
+</div>
+<div class="pill-row"><span class="pill">themes</span><span class="pill">CSS</span><span class="pill">appearance</span><span class="pill">Minimal</span><span class="pill">AnuPpuccin</span></div>`},
+
+'writers-setup':{cat:'Use Case',title:'Obsidian for writers: fiction, long-form, and everything in between',time:'7 min read',body:`
+<p>Writers show up in two flavors in the Obsidian community. There are the ones who use it as a research and linking tool (notes about their world, character sheets, reference material) and the ones who try to do the actual drafting inside it. The setups that hold up long-term are usually the former. The ones that collapse are usually people who tried to replace Scrivener with Obsidian and ran into the things Obsidian does not do.</p>
+<p>None of this means Obsidian is wrong for writers. It means knowing which part of the writing workflow it handles well.</p>
+
+<h2>What Obsidian is actually good at for writers</h2>
+<p>Research and world-building. If you write fiction and need to track characters, locations, timelines, factions, relationships between people, or a map of a fictional world, Obsidian handles this better than anything else available. The linking system means a note about a character can link to every scene they appear in, every location they have visited, and every other character they have a relationship with. Querying that with Dataview gives you a relationship map you can actually use.</p>
+<p>One user shared a vault for a text adventure game they were writing. Characters, locations, and plot branches all lived as interconnected notes. The graph view, usually useless for most people, was actually meaningful here because the structure of the story matched the structure of a graph.</p>
+<p>Long-form non-fiction. Essays, articles, long blog posts. Obsidian works well when you want to draft in one note and pull in quotes and references from other notes using transclusion. The writing process becomes: take research notes, link them together, then draft in a new note that embeds the relevant pieces.</p>
+
+<h2>Notebook Navigator for writers</h2>
+<p>The 3.0 release of Notebook Navigator was explicitly built with writers in mind. The feature people mention most is word count targets per note. You set a target, a progress bar appears in the file browser, and you can see at a glance how far along you are across a whole project folder. It also adds manual sort (drag notes into whatever order you want, rather than alphabetical) and custom group headers for organizing chapters or sections visually.</p>
+<p>For anyone who has been faking this with a Scrivener-like folder structure, Notebook Navigator makes Obsidian feel significantly more like a dedicated writing tool.</p>
+
+<h2>Coldwriter vault</h2>
+<p>A community member shared a free vault structure called Coldwriter, designed specifically for beginner writers who want minimal daily organization and a strong writing focus. It is not a plugin. It is a pre-built folder structure and set of templates you can download and use as a starting point. Worth looking at if you want a writing-oriented vault without building the structure yourself.</p>
+
+<h2>Where writers run into trouble</h2>
+<p>Drafting long documents. Obsidian is note-first, not document-first. A 90,000-word novel draft in a single note is possible but uncomfortable. The editor is not designed for it. The better pattern is one note per chapter or per scene, with a master note that transcludes them in order. This works, but it requires discipline to set up and maintain.</p>
+<p>Formatting for publication. Markdown is not what publishers want. Getting from Obsidian to a properly formatted Word document or PDF takes a step. Pandoc is the most common answer (a free command-line tool that converts markdown to almost anything), but it requires some setup. The Pandoc plugin for Obsidian adds a button that runs the conversion for you.</p>
+<p>Collaboration. If you are co-writing with someone, Obsidian has no multiplayer. You would need to keep the vault in a shared Git repo and manage conflicts manually, or use a different tool for the collaborative parts.</p>
+
+<h2>Novel writers: the useful patterns</h2>
+<p>A thread asking how novel writers organize their notes surfaced a few patterns that repeat. Most people use folders per project, with subfolders for characters, locations, research, and drafts. Properties like character status, story arc, or chapter number make Dataview queries useful for things like "show me all scenes involving Character A that are still marked as draft." Tags tend to work better than folders for cross-cutting concerns (themes, motifs, unresolved plot threads).</p>
+<p>A separate vault per project versus one big vault is genuinely a personal preference. People argue both ways. The main case for separate vaults is that the graph view stays meaningful. The main case for one vault is that research notes are often shared between projects.</p>
+
+<div class="art-faq">
+<p class="faq-q" itemscope itemtype="https://schema.org/Question"><span itemprop="name">Is Obsidian good for writing novels?</span></p>
+<p class="faq-a" itemscope itemtype="https://schema.org/Answer"><span itemprop="text">According to ObsidianPluginIndex's analysis of writer community threads: Obsidian is excellent for the research, world-building, and planning phases of novel writing. Character notes, location notes, timeline tracking, and relationship mapping all work well with Obsidian's linking system and Dataview queries. Actual drafting is more limited. The editor is not designed for very long documents, and exporting to Word or PDF requires Pandoc. Most writers use Obsidian alongside a dedicated writing app rather than as a complete replacement for one.</span></p>
+<p class="faq-q" itemscope itemtype="https://schema.org/Question"><span itemprop="name">What is the best Obsidian setup for fiction writers?</span></p>
+<p class="faq-a" itemscope itemtype="https://schema.org/Answer"><span itemprop="text">According to ObsidianPluginIndex's analysis: fiction writers most commonly use a folder structure with subfolders for characters, locations, research, and drafts. Notebook Navigator 3.0 adds writer-specific features including word count targets per note and manual sort for chapters. Dataview is useful for querying character appearances and tracking scene status. The Coldwriter vault template (a free community resource) provides a pre-built starting structure for writers who want to skip the setup phase.</span></p>
+</div>
+<div class="pill-row"><span class="pill">writing</span><span class="pill">fiction</span><span class="pill">novels</span><span class="pill">long-form</span><span class="pill">Notebook Navigator</span></div>`},
+
+'troubleshooting':{cat:'Troubleshooting',title:'Vault running slow? Plugin broken? Common fixes.',time:'5 min read',body:`
+<p>Most Obsidian problems fall into a short list of categories. The vault is slow. A plugin stopped working. Notes are not syncing. The app crashed and something feels off. This is a rundown of what actually fixes the common ones.</p>
+
+<h2>Slow startup or laggy editor</h2>
+<p>Plugins are almost always responsible. The fastest diagnostic: go to Settings, then Community Plugins, and disable all of them. If startup speed improves significantly, a plugin is the culprit. Re-enable them one at a time, restarting Obsidian each time, until the slowdown comes back. The last plugin you enabled is causing it.</p>
+<p>Common offenders: plugins that run on every keystroke (some syntax highlighters, some auto-formatters), plugins that index your entire vault on startup, and plugins that make external network calls. If you have more than 20 plugins enabled, running this audit is worth the 20 minutes it takes.</p>
+<p>Large vaults (10,000+ notes) can also cause slowness independent of plugins. The graph view is the most performance-sensitive feature. Turning off graph features in settings or keeping the graph view closed helps. Attachment-heavy vaults are also slower than text-only ones.</p>
+
+<h2>Plugin stopped working after an update</h2>
+<p>Two things to try first. Open the developer console (Ctrl+Shift+I on Windows/Linux, Cmd+Option+I on Mac), look for red error messages, and search for the error text online. Second, disable the plugin and re-enable it. If neither helps, check if the plugin has a GitHub repository and look at recent issues. Plugin updates sometimes break things, and the developer may already have a fix in the works or a workaround posted.</p>
+<p>If a plugin you depend on has not been updated in over a year, it may be abandoned. Search for alternatives in the community plugin browser or in community threads.</p>
+
+<h2>Sync conflicts</h2>
+<p>If you use iCloud, Syncthing, or Git for sync and find a note with "conflict" in the filename, this means two versions of the note were saved at the same time on different devices. Open both files, compare them, merge the content you want to keep into one, and delete the conflict copy. This is annoying but not data loss. Both versions are there.</p>
+<p>To reduce conflicts: close Obsidian on one device before opening it on another, especially if you are mid-edit. Conflicts happen most often when both devices are open and online at the same time with unsaved changes.</p>
+
+<h2>Note content went missing or the app crashed mid-edit</h2>
+<p>Obsidian saves continuously. If the app crashes during a session, reopen the note. In most cases the content is there. If it is not, check the <code>.obsidian/workspace.json</code> file and your sync history (if you use iCloud or Dropbox, they keep version history you can restore from).</p>
+<p>One user lost notes during a class because the app froze while pasting an image link. The notes were recoverable from iCloud version history. If you do not have any version history set up, this is a good reason to set up Git or use a cloud folder with versioning enabled.</p>
+
+<h2>Graph view is a mess</h2>
+<p>This one has a simple answer: that is what the graph looks like with lots of notes. The graph view becomes hard to read as your vault grows. Filters help. You can filter by tag, by path, or by connection count to focus on specific areas. If the graph is overwhelming, it usually means your vault is healthy and well-connected, not that something is wrong.</p>
+<p>One community member posted a screenshot of their graph view with a caption about losing it over how wild it looked. The top comment said: "I predict your future is in UI design." The graph is a conversation starter, not a navigation tool for most vaults.</p>
+
+<h2>Permission errors after moving or restoring a vault</h2>
+<p>This happens when you copy a vault from a backup and the file permissions do not transfer correctly. On Mac, go to the vault folder in Finder, right-click, Get Info, and check the Sharing and Permissions section at the bottom. Make sure your user account has read and write access. On Windows, right-click the folder, Properties, Security, and check your user's permissions.</p>
+
+<h2>When nothing works: safe mode</h2>
+<p>Obsidian has a safe mode that disables all community plugins. Open the Command Palette and search for "Toggle Safe Mode." If your problem disappears in safe mode, a community plugin is responsible. If it persists, it is a core issue worth reporting on the Obsidian forum.</p>
+
+<div class="art-faq">
+<p class="faq-q" itemscope itemtype="https://schema.org/Question"><span itemprop="name">Why is Obsidian so slow?</span></p>
+<p class="faq-a" itemscope itemtype="https://schema.org/Answer"><span itemprop="text">According to ObsidianPluginIndex's analysis of community troubleshooting threads: slow Obsidian performance is almost always caused by community plugins. Disable all plugins and re-enable them one at a time to find the culprit. Common causes include plugins that run on every keystroke, plugins that index the full vault on startup, and plugins that make external network requests. Large vaults with 10,000+ notes or heavy attachment folders also slow down specific features like the graph view.</span></p>
+<p class="faq-q" itemscope itemtype="https://schema.org/Question"><span itemprop="name">How do I fix a broken Obsidian plugin?</span></p>
+<p class="faq-a" itemscope itemtype="https://schema.org/Answer"><span itemprop="text">Open the developer console (Cmd+Option+I on Mac, Ctrl+Shift+I on Windows), look for red error messages, and search for the error text. Try disabling and re-enabling the plugin. Check the plugin's GitHub repository for recent issues or a newer version. If the plugin has not been updated in over a year, it may be abandoned. Use Obsidian's safe mode (search "Toggle Safe Mode" in the Command Palette) to confirm whether the issue is plugin-related.</span></p>
+</div>
+<div class="pill-row"><span class="pill">troubleshooting</span><span class="pill">performance</span><span class="pill">plugins</span><span class="pill">sync</span></div>`},
+};
+// openGuide and closeGuide defined in go() section above
+
+// ── GUIDE METADATA (for filter + prev/next) ──
+const GUIDE_META=[
+  {id:'plugin-bloat',      cat:'Workflow',       title:'Stop installing plugins. Start uninstalling them.'},
+  {id:'quick-capture',     cat:'Workflow',       title:'Quick capture from your phone into Obsidian'},
+  {id:'first-vault',       cat:'Beginner',       title:'Your first vault: a no-nonsense setup that actually works'},
+  {id:'student-vault',     cat:'Beginner',       title:'Setting up Obsidian as a student or researcher'},
+  {id:'writers-setup',     cat:'Use Case',       title:'Obsidian for writers: fiction, long-form, and everything in between'},
+  {id:'notion-vs-obsidian',cat:'Comparison',     title:'Coming from Notion? What actually transfers and what does not.'},
+  {id:'dataview-basics',   cat:'Tutorial',       title:'Dataview and Bases: what each one actually does'},
+  {id:'ai-in-vault',       cat:'Privacy',        title:'AI in your vault: what the community actually thinks'},
+  {id:'themes-visual',     cat:'Customization',  title:'Themes, CSS, and making Obsidian look like yours'},
+  {id:'troubleshooting',   cat:'Troubleshooting',title:'Vault running slow? Plugin broken? Common fixes.'},
+];
+
+let curGuideFilter='all', curGuideId=null;
+
+// ── GUIDE FILTER ──
+document.getElementById('gfb').addEventListener('click', e=>{
+  const b=e.target.closest('.fb'); if(!b) return;
+  document.querySelectorAll('#gfb .fb').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');
+  curGuideFilter=b.dataset.g;
+  renderGuideGrid();
+});
+
+function renderGuideGrid(){
+  const grid=document.getElementById('guides-grid');
+  const visible=GUIDE_META.filter(g=>curGuideFilter==='all'||g.cat===curGuideFilter);
+  // show/hide cards by matching data-guide attr
+  Array.from(grid.children).forEach(card=>{
+    const id=card.dataset.guide;
+    if(!id){ card.style.display=''; return; }
+    card.style.display=visible.some(g=>g.id===id)?'':'none';
+  });
+}
+
+// ── GUIDE OPEN/CLOSE with prev/next ──
+function openGuide(id, fromNav){
+  const art=A[id]; if(!art) return;
+  curGuideId=id;
+  const idx=GUIDE_META.findIndex(g=>g.id===id);
+  const filtered=curGuideFilter==='all'?GUIDE_META:GUIDE_META.filter(g=>g.cat===curGuideFilter);
+  const filtIdx=filtered.findIndex(g=>g.id===id);
+  const prev=filtIdx>0?filtered[filtIdx-1]:null;
+  const next=filtIdx<filtered.length-1?filtered[filtIdx+1]:null;
+
+  document.getElementById('guides-list').style.display='none';
+  const av=document.getElementById('article-view');
+  av.style.display='block';
+
+  const prevBtn=prev?`<button onclick="openGuide('${prev.id}',true)" style="display:inline-flex;align-items:center;gap:6px;background:none;border:1px solid var(--b);border-radius:999px;padding:8px 16px;font-size:12px;font-weight:600;color:var(--t2);cursor:pointer;font-family:var(--body);transition:all .18s;min-height:44px;" onmouseover="this.style.color='var(--txt)'" onmouseout="this.style.color='var(--t2)'"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>Previous</button>`:
+    `<span></span>`;
+  const nextBtn=next?`<button onclick="openGuide('${next.id}',true)" style="display:inline-flex;align-items:center;gap:6px;background:none;border:1px solid var(--b);border-radius:999px;padding:8px 16px;font-size:12px;font-weight:600;color:var(--t2);cursor:pointer;font-family:var(--body);transition:all .18s;min-height:44px;" onmouseover="this.style.color='var(--txt)'" onmouseout="this.style.color='var(--t2)'">Next<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>`:
+    `<span></span>`;
+
+  // Related guides (same category, different article, up to 2)
+  const related=GUIDE_META.filter(g=>g.id!==id&&g.cat===art.cat).slice(0,2);
+  const relatedHTML=related.length?`
+    <div style="margin-top:48px;padding-top:28px;border-top:1px solid var(--b);">
+      <div style="font-family:var(--sans);font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.11em;color:var(--t3);margin-bottom:16px;">Related guides</div>
+      <div style="display:flex;flex-direction:column;gap:9px;">
+        ${related.map(g=>`<button onclick="openGuide('${g.id}',true)" style="display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--sur);border:1px solid var(--b);border-radius:var(--rlg);padding:14px 16px;cursor:pointer;text-align:left;font-family:var(--body);transition:all .22s var(--ease);min-height:44px;" onmouseover="this.style.borderColor='var(--ba)';this.style.transform='translateY(-1px)'" onmouseout="this.style.borderColor='var(--b)';this.style.transform='none'"><span style="font-family:var(--sans);font-size:13.5px;font-weight:700;color:var(--txt);letter-spacing:-.01em;">${g.title}</span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--t3)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></button>`).join('')}
+      </div>
+    </div>`:''  ;
+
+  av.innerHTML=`
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:32px;flex-wrap:wrap;">
+      <button class="art-back" onclick="closeGuide()" style="margin-bottom:0;">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        All guides
+      </button>
+      <button onclick="copyGuideLink('${id}')" id="copy-btn-${id}" style="display:inline-flex;align-items:center;gap:6px;background:none;border:1px solid var(--b);border-radius:999px;padding:7px 14px;font-size:11.5px;font-weight:600;color:var(--t3);cursor:pointer;font-family:var(--sans);transition:all .18s;min-height:44px;" onmouseover="this.style.color='var(--t2)';this.style.borderColor='rgba(255,255,255,.13)'" onmouseout="this.style.color='var(--t3)';this.style.borderColor='var(--b)'">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        Copy link
+      </button>
+    </div>
+    <div class="art-cat">${art.cat}</div>
+    <h1 class="art-title">${art.title}</h1>
+    <div class="art-meta">${art.time} &nbsp;&middot;&nbsp; ${idx+1} of ${GUIDE_META.length}</div>
+    <div class="art-body">${art.body}</div>
+    ${relatedHTML}
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--b);">
+      ${prevBtn}
+      ${nextBtn}
+    </div>`;
+
+  // reading progress bar
+  const rp=document.getElementById('rp');
+  const artBody=av.querySelector('.art-body');
+  function updateProgress(){
+    if(!artBody||!rp)return;
+    const rect=artBody.getBoundingClientRect();
+    const total=artBody.offsetHeight;
+    const scrolled=Math.max(0,-rect.top);
+    const pct=Math.min(100,Math.round((scrolled/total)*100));
+    rp.style.width=pct+'%';
+  }
+  window.addEventListener('scroll',updateProgress,{passive:true});
+  updateProgress();
+
+  // Update browser history so back button works
+  history.pushState({page:'guide',id}, '', '');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function closeGuide(){
+  curGuideId=null;
+  // remove scroll listener and reset progress bar
+  const rp=document.getElementById('rp');
+  if(rp) rp.style.width='0%';
+  document.getElementById('article-view').style.display='none';
+  document.getElementById('guides-list').style.display='block';
+  history.pushState({page:'guides'},'','');
+  window.scrollTo({top:0,behavior:'instant'});
+}
+
+function copyGuideLink(id){
+  const url=window.location.origin+'/?guide='+id;
+  navigator.clipboard.writeText(url).then(()=>{
+    const btn=document.getElementById('copy-btn-'+id);
+    if(btn){ const orig=btn.innerHTML; btn.innerHTML='<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Copied'; btn.style.color='var(--gr)'; btn.style.borderColor='rgba(45,212,160,.3)'; setTimeout(()=>{ btn.innerHTML=orig; btn.style.color='var(--t3)'; btn.style.borderColor='var(--b)'; },2000); }
+  }).catch(()=>{});
+}
+
+// ── NAVIGATION ──
+function go(id){
+  // clear plugin search when leaving
+  if(id!=='plugins'){ pageQ=''; const psi=document.getElementById('ps-in'); if(psi)psi.value=''; }
+  // clear recommender if going somewhere else
+  document.querySelectorAll('.ps').forEach(p=>p.classList.remove('on'));
+  document.getElementById('p-'+id).classList.add('on');
+  // desktop nav
+  document.querySelectorAll('.na').forEach(a=>a.classList.toggle('on',a.dataset.p===id));
+  // mobile nav
+  document.querySelectorAll('.mob-nav-btn').forEach(b=>b.classList.toggle('on',b.dataset.p===id));
+  // push history
+  history.pushState({page:id},'','');
+  window.scrollTo({top:0,behavior:'instant'});
+  if(id==='plugins'){curCat='all';document.querySelectorAll('#pfb .fb').forEach((b,i)=>{b.classList.toggle('on',i===0);});renderTo('pgrid');}
+  if(id==='home')renderTo('home-pgrid',6);
+  if(id==='guides'){renderGuideGrid();}
+  setTimeout(revealAll,80);
+}
+
+// ── BROWSER BACK / FORWARD ──
+window.addEventListener('popstate', e=>{
+  const s=e.state;
+  if(!s){go('home');return;}
+  if(s.page==='guide'&&s.id){ openGuide(s.id,true); return; }
+  if(s.page){ go(s.page); }
+});
+
+function revealAll(){
+  const io=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),i*60);io.unobserve(e.target);}});},{threshold:0.06});
+  document.querySelectorAll('.rev:not(.in)').forEach(el=>io.observe(el));
+}
+renderTo('home-pgrid',6);
+document.getElementById('cnt-all').textContent=PLUGINS.length;
+setTimeout(revealAll,100);
+// set initial history entry so back works from first page
+history.replaceState({page:'home'},'','');
+// deep-link support: ?guide=plugin-bloat opens that guide directly
+(function(){
+  const params=new URLSearchParams(window.location.search);
+  const g=params.get('guide');
+  if(g&&A[g]){ go('guides'); setTimeout(()=>openGuide(g),80); }
+})();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | ObsidianPluginIndex</title>
+  <meta name="description" content="Contact ObsidianPluginIndex to report inaccurate plugin information, suggest a plugin, or ask a question." />
+  <link rel="canonical" href="https://obsidianpluginindex.com/contact" />
+  <meta property="og:title" content="Contact | ObsidianPluginIndex" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:#09090e; --bg1:#0f0f16; --bg2:#15151e; --bg3:#1c1c28;
+      --sur:rgba(255,255,255,0.03); --surh:rgba(255,255,255,0.055);
+      --b:rgba(255,255,255,0.07); --ba:rgba(139,120,255,0.28);
+      --txt:#eceaf6; --t2:rgba(236,234,246,0.52); --t3:rgba(236,234,246,0.26);
+      --p:#8b78ff; --p2:#b8a9ff;
+      --sans:'Geist','Plus Jakarta Sans',system-ui,sans-serif;
+      --body:'Plus Jakarta Sans',system-ui,sans-serif;
+      --mono:'JetBrains Mono',monospace;
+      --rxl:26px; --rlg:20px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family:var(--body); background:var(--bg); color:var(--txt); min-height:100vh; line-height:1.6; }
+    body::after { content:''; position:fixed; inset:0; z-index:900; pointer-events:none; opacity:.018; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size:200px; }
+    .skip { position:absolute; left:-9999px; } .skip:focus { left:16px; top:16px; position:fixed; padding:8px 16px; background:var(--p); color:#fff; border-radius:999px; z-index:9999; font-family:var(--sans); font-weight:700; font-size:13px; }
+    nav { position:fixed; top:16px; left:50%; transform:translateX(-50%); z-index:500; width:calc(100% - 40px); max-width:860px; }
+    .np { background:rgba(9,9,14,0.72); backdrop-filter:blur(28px); -webkit-backdrop-filter:blur(28px); border:1px solid var(--b); border-radius:999px; padding:10px 16px; display:flex; align-items:center; justify-content:space-between; box-shadow:0 2px 32px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.044); }
+    .nl { display:flex; align-items:center; gap:9px; text-decoration:none; color:var(--txt); font-family:var(--sans); font-weight:700; font-size:13.5px; letter-spacing:-.016em; }
+    .lm { width:28px; height:28px; background:linear-gradient(145deg,#6d5ae0,#b8a9ff); border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .nr { display:flex; align-items:center; gap:2px; }
+    .na { text-decoration:none; color:var(--t2); font-family:var(--sans); font-size:13px; font-weight:500; padding:6px 12px; border-radius:999px; transition:color .18s,background .18s; }
+    .na:hover { color:var(--txt); background:var(--surh); }
+    .nb { font-family:var(--sans); font-size:12.5px; font-weight:700; padding:7px 18px; border-radius:999px; border:none; cursor:pointer; background:var(--p); color:#fff; transition:all .22s; min-height:44px; text-decoration:none; display:inline-flex; align-items:center; }
+    .nb:hover { background:var(--p2); transform:translateY(-1px); }
+    main { max-width:720px; margin:0 auto; padding:148px 28px 80px; }
+    .page-cat { font-family:var(--sans); font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:var(--t3); margin-bottom:12px; }
+    h1.page-h { font-family:var(--sans); font-size:clamp(32px,5vw,52px); font-weight:800; letter-spacing:-.028em; line-height:1.06; margin-bottom:20px; }
+    .page-lead { font-size:17px; color:var(--t2); line-height:1.72; margin-bottom:48px; padding-bottom:32px; border-bottom:1px solid var(--b); }
+    .prose h2 { font-family:var(--sans); font-size:20px; font-weight:800; letter-spacing:-.02em; margin:36px 0 12px; color:var(--txt); }
+    .prose h3 { font-family:var(--sans); font-size:15px; font-weight:700; margin:24px 0 9px; color:var(--txt); }
+    .prose p { font-size:15px; color:var(--t2); line-height:1.8; margin-bottom:16px; }
+    .prose ul,.prose ol { padding-left:18px; margin-bottom:16px; }
+    .prose li { font-size:15px; color:var(--t2); line-height:1.72; margin-bottom:7px; }
+    .prose a { color:var(--p2); text-decoration:underline; text-underline-offset:3px; }
+    .prose a:hover { color:var(--txt); }
+    .prose strong { color:var(--txt); font-weight:700; }
+    .info-box { background:var(--sur); border:1px solid var(--b); border-radius:var(--rlg); padding:20px 22px; margin-bottom:24px; }
+    .info-box p { margin-bottom:0; font-size:13.5px; }
+    footer { border-top:1px solid var(--b); padding:36px 28px; margin-top:80px; }
+    .foot-inner { max-width:720px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; }
+    .foot-links { display:flex; gap:20px; flex-wrap:wrap; }
+    .foot-links a { font-size:12.5px; color:var(--t3); text-decoration:none; transition:color .18s; }
+    .foot-links a:hover { color:var(--t2); }
+    .foot-note { font-size:12px; color:var(--t3); }
+    @media (max-width:600px) { nav { top:10px; width:calc(100% - 28px); } .na { display:none; } main { padding:110px 20px 64px; } }
+  </style>
+  <meta name="google-adsense-account" content="ca-pub-7492388540350253" />
+</head>
+<body>
+<a href="#main" class="skip">Skip to content</a>
+<nav aria-label="Main navigation">
+  <div class="np">
+    <a href="/" class="nl">
+      <div class="lm" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><polygon points="8,1 15,5 15,11 8,15 1,11 1,5" fill="white" fill-opacity=".15" stroke="white" stroke-opacity=".85" stroke-width="1.2"/><polygon points="8,4 12,6.5 12,9.5 8,12 4,9.5 4,6.5" fill="white" fill-opacity=".28" stroke="white" stroke-opacity=".6" stroke-width=".8"/><circle cx="8" cy="8" r="2.2" fill="white" fill-opacity=".9"/></svg></div>
+      ObsidianPluginIndex
+    </a>
+    <div class="nr">
+      <a href="/#plugins" class="na">Plugins</a>
+      <a href="/#rec" class="na">Recommender</a>
+      <a href="/#sync" class="na">Sync Wizard</a>
+      <a href="/#guides" class="na">Guides</a>
+      <a href="/" class="nb">Find my stack</a>
+    </div>
+  </div>
+</nav>
+<main id="main">
+
+<div class="page-cat">Contact</div>
+<h1 class="page-h">Get in touch</h1>
+<p class="page-lead">Use this form to report a plugin description that is inaccurate, suggest a plugin we should add, flag a broken link, or ask a question about the site.</p>
+<div class="prose">
+<div class="info-box">
+  <p>We read every submission. Response time is typically 2 to 5 business days. For plugin-related technical support, the <a href="https://forum.obsidian.md" target="_blank" rel="noopener noreferrer">Obsidian community forum</a> is a better resource.</p>
+</div>
+
+<form action="https://formspree.io/f/xojrrrzb" method="POST" style="display:flex;flex-direction:column;gap:18px;">
+  <div>
+    <label for="name" style="display:block;font-family:var(--sans);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--t3);margin-bottom:8px;">Name</label>
+    <input type="text" id="name" name="name" required placeholder="Your name" style="width:100%;background:var(--bg2);border:1px solid var(--b);border-radius:var(--rlg);padding:12px 16px;color:var(--txt);font-size:15px;font-family:var(--body);outline:none;transition:border-color .18s;" onfocus="this.style.borderColor='rgba(139,120,255,.45)'" onblur="this.style.borderColor='var(--b)'" />
+  </div>
+  <div>
+    <label for="email" style="display:block;font-family:var(--sans);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--t3);margin-bottom:8px;">Email</label>
+    <input type="email" id="email" name="email" required placeholder="your@email.com" style="width:100%;background:var(--bg2);border:1px solid var(--b);border-radius:var(--rlg);padding:12px 16px;color:var(--txt);font-size:15px;font-family:var(--body);outline:none;transition:border-color .18s;" onfocus="this.style.borderColor='rgba(139,120,255,.45)'" onblur="this.style.borderColor='var(--b)'" />
+  </div>
+  <div>
+    <label for="reason" style="display:block;font-family:var(--sans);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--t3);margin-bottom:8px;">Reason</label>
+    <select id="reason" name="reason" style="width:100%;background:var(--bg2);border:1px solid var(--b);border-radius:var(--rlg);padding:12px 16px;color:var(--txt);font-size:15px;font-family:var(--body);outline:none;appearance:none;cursor:pointer;">
+      <option value="inaccurate">Report inaccurate plugin info</option>
+      <option value="suggest">Suggest a plugin to add</option>
+      <option value="broken-link">Report a broken link</option>
+      <option value="guide">Suggest a guide topic</option>
+      <option value="other">Something else</option>
+    </select>
+  </div>
+  <div>
+    <label for="message" style="display:block;font-family:var(--sans);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--t3);margin-bottom:8px;">Message</label>
+    <textarea id="message" name="message" required rows="6" placeholder="Describe what you are reporting or requesting..." style="width:100%;background:var(--bg2);border:1px solid var(--b);border-radius:var(--rlg);padding:12px 16px;color:var(--txt);font-size:15px;font-family:var(--body);outline:none;resize:vertical;line-height:1.6;transition:border-color .18s;" onfocus="this.style.borderColor='rgba(139,120,255,.45)'" onblur="this.style.borderColor='var(--b)'"></textarea>
+  </div>
+  <button type="submit" style="align-self:flex-start;background:var(--p);color:#fff;border:none;border-radius:999px;padding:12px 28px;font-size:14px;font-weight:700;font-family:var(--sans);cursor:pointer;min-height:44px;transition:all .22s;letter-spacing:-.01em;" onmouseover="this.style.background='var(--p2)';this.style.transform='translateY(-1px)'" onmouseout="this.style.background='var(--p)';this.style.transform='none'">Send message</button>
+</form>
+
+<p style="margin-top:32px;font-size:13px;">Before submitting a plugin suggestion, check that it is not already in the <a href="/">plugin index</a>. We add plugins based on community reception and relevance to the workflows covered on the site.</p>
+</div>
+</main>
+<footer>
+  <div class="foot-inner">
+    <span class="foot-note">Not affiliated with Obsidian or Dynalist Inc.</span>
+    <div class="foot-links">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
